@@ -16,6 +16,7 @@ class Person extends Component {
         this.myInputElement = React.createRef();
     }
 
+    // discouraged as of React 16.3
     componentWillMount() {
         console.log('[Person.js] Inside componentWillMount()');
     }
@@ -31,6 +32,7 @@ class Person extends Component {
         console.log('[Person.js] Inside componentWillUnmount()');
     }
 
+    // discouraged as of React 16.3
     componentWillReceiveProps(nextProps) {
         console.log('[UPDATE Person.js] Inside componentWillReceiveProps(%o)', nextProps)
     }
@@ -41,6 +43,7 @@ class Person extends Component {
             nextProps.authenticated !== this.props.authenticated;
     }
 
+    // discouraged as of React 16.3
     componentWillUpdate(nextProps, nextState) {
         console.log('[UPDATE Person.js] Inside componentWillUpdate(%o, %o)', nextProps, nextState)
     }

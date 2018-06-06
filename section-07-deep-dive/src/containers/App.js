@@ -18,9 +18,10 @@ class App extends PureComponent {
      */
   }
 
-  componentWillMount() {
-    console.log('[App.js] Inside componentWillMount()');
-  }
+  // discouraged as of React 16.3
+  //componentWillMount() {
+  //  console.log('[App.js] Inside componentWillMount()');
+  //}
 
   componentDidMount() {
     console.log('[App.js] Inside componentDidMount()');
@@ -35,12 +36,24 @@ class App extends PureComponent {
   //     nextState.showPersons !== this.state.showPersons;
   // }
 
-  componentWillUpdate(nextProps, nextState) {
-    console.log('[UPDATE App.js] Inside componentWillUpdate(%o, %o)', nextProps, nextState);
-  }
+  // discouraged as of React 16.3
+  //componentWillUpdate(nextProps, nextState) {
+  //  console.log('[UPDATE App.js] Inside componentWillUpdate(%o, %o)', nextProps, nextState);
+  //}
 
   componentDidUpdate() {
     console.log('[UPDATE App.js] Inside componentDidUpdate()');
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    console.log('[UPDATE App.js] Inside getDerivedStateFromProps(%o, %o)', nextProps, prevState);
+    return prevState;
+  }
+
+  // Good callback to save the current scrolling position, to use after update is completed
+  getSnapshotBeforeUpdate() {
+    console.log('[UPDATE App.js] Inside getSnapshotBeforeUpdate()');
+    return 42;
   }
 
   state = {
