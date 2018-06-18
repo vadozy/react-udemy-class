@@ -1,0 +1,218 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", Verdana, Geneva, sans-serif;
+}
+
+.aggApp {
+  margin: 0 7px;
+}
+
+.aggHeader {
+  position: fixed;
+  z-index: 90;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #EBEBEB;
+  background-color: #FBFBFB;
+}
+
+.aggHeader h3 {
+  margin: 5px;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.aggControls {
+  font-size: 12px;
+  height: 110px;
+  display: flex;
+  margin: 0;
+  padding: 0;  
+}
+
+.aggControl1 {
+  flex: 1;
+  margin-left: 30px;
+  margin-top: 30px; 
+}
+
+.aggControl2 {
+  flex: 1;
+}
+
+.aggControl3 {
+  flex: 0.6;
+  text-align: center;
+}
+
+.aggControl4 {
+  margin-right: 10px;
+}
+
+.aggControl4 div {
+  padding: 1px 4px;
+}
+
+.filter {
+  font-size: 12px;
+  display: flex;
+  margin: 0;
+  padding: 0;  
+}
+
+.filter-label {
+  flex: 0.4;
+}
+
+.filter-control {
+  flex: 1;
+}
+
+.aggButton {
+    background-color: #A0DB91;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid #966909;
+    color: #EF5502;
+    font-family: inherit;
+    font-size: 1.2em;
+    padding: 15px 30px;
+    box-shadow: 2px 2px 2px #966909;
+}
+
+.aggButton:hover, .aggButton:active {
+    background-color: #99FF99;
+    border: 1px solid #966909;
+    color: #966909;
+}
+
+.aggTableWRapper {
+  padding-top: 155px;
+}
+
+table.aggTable {
+  font-size: 10px;
+  background-color: #FFFFFF;
+  width: 100%;
+  text-align: right;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+table.aggTable td {
+  border: 1px solid #D0D0D0;
+  padding: 2px 4px;
+}
+
+table.aggTable tbody td {
+  color: #303030;
+}
+
+table.aggTable tbody tr:nth-child(even) {
+  background: #F2F2F2;
+}
+
+table.aggTable th {
+  font-weight: bold;
+  text-align: center;
+  vertical-align: bottom;
+  padding-bottom: 5px;
+  width: 40px;
+}
+
+/* 
+ * BEGIN rotate headers (90 - 30) degrees styling
+ */
+table.aggTable th.rotated {
+  font-weight: bold;
+  height: 70px; /* used in math computations below */
+  position: relative;
+  vertical-align: bottom;
+  padding: 0;
+  line-height: 0.8;
+}
+
+table.aggTable th.rotated > div {
+  background-color: #FAFAFA;
+  position: relative;
+  top: 0px;
+  left: 20px; /* (70 * tan(30) / 2 = 20) where 70 is the height on the cell and 30 is the transform angle*/
+  height: 100%;
+  -ms-transform:skew(-30deg,0deg);
+  -moz-transform:skew(-30deg,0deg);
+  -webkit-transform:skew(-30deg,0deg);
+  -o-transform:skew(-30deg,0deg);
+  transform:skew(-30deg,0deg);
+  overflow: hidden;
+  border-right: 1px solid #D0D0D0;
+  border-top: 1px solid #D0D0D0;
+}
+
+/* 3rd header is the 1st slanted header */
+table.aggTable th:nth-child(3).rotated > div {
+  border-left: 1px solid #D0D0D0;
+}
+
+table.aggTable th.rotated span {
+  -ms-transform:skew(30deg,0deg) rotate(300deg);
+  -moz-transform:skew(30deg,0deg) rotate(300deg);
+  -webkit-transform:skew(30deg,0deg) rotate(300deg);
+  -o-transform:skew(30deg,0deg) rotate(300deg);
+  transform:skew(30deg,0deg) rotate(300deg);
+  position: absolute;
+  bottom: 21px; /* (40 sin(30) = 20) with an additional 1px margin */
+  left: -5px; /* Adjust empirically, though there is some math hidden there too */
+  display: inline-block;
+  /*width: 100%;*/
+  width: 46px; /* (70 / cos(30) - 40 cos (30) = 46) where 70 is the height of the cell, 40 the width of the cell and 30 the transform angle */
+  text-align: left;
+  /*white-space: nowrap;*/ /*whether to display in one line or not*/
+}
+
+table.aggTable tr.my_tr {
+  border: 0px none;
+}
+
+table.aggTable tr.my_tr td {
+  border: 0px none;
+}
+
+table.aggTable tr.my_tr td.my_td {
+  padding-left: 48px; /* 70 tan(30) = 40 + 8 padding */
+  font-weight: bold;
+}
+
+
+
+/* 
+ * END of rotate headers styling
+ */
+
+table.aggTable td.negative {
+  color: #FF0000;
+}
+
+.approved, table.aggTable td.approved {
+  background-color: #99FF99;
+}
+
+.in-progress, table.aggTable td.in-progress {
+  background-color: #FFFF99;
+}
+
+.reject, table.aggTable td.reject {
+  background-color: #FFDDEE;
+}
+
+table.aggTable .bold {
+  font-weight: bold;
+}
+
+table.aggTable td.empty-cell {
+  background-color: #FFFFFF;
+  border: 0px none #FFFFFF;
+  width: 40px;
+}
+

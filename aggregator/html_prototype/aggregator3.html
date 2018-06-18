@@ -1,0 +1,7817 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="aggregator3.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+  </head>
+  <body>
+    <main class="aggregatorApp" >
+      <div class="layout">
+        <div class="sidebar">
+          <h3>PIR Sleeve Aggregator</h3>
+          <section class="sidebarSection">
+            <h4>
+              Multi-Sleeve Portfolio
+              <img src="reload.png" class="reload" title="refresh the page data" />
+            </h4>
+            <div class="sidebarElementContainer">
+              <div class="sidebarElement1">
+                Portfolio
+              </div>
+              <div class="sidebarElement2">
+                <select style="width: 100px;">
+                  <option value="nimulti" selected>nimulti</option>
+                  <option value="xxx">xxx</option>
+                  <option value="yyy">yyy</option>
+                  <option value="zzz">zzz</option>
+                </select>
+              </div>
+            </div>
+            <div class="sidebarElementContainer">
+              <div class="sidebarElement1">
+                Country
+              </div>
+              <div class="sidebarElement2">
+                <select style="width: 100px;">
+                  <option value="east" selected>East</option>
+                  <option value="west">West</option>
+                  <option value="north">Some long text: North Pole and South Pole combined</option>
+                </select>
+              </div>
+            </div>
+          </section>
+          <section class="sidebarSection">
+            <h4>Filters</h4>
+
+            <div class="sidebarElementContainer">
+              <div class="sidebarElement1">
+                UID / Symbol
+              </div>
+              <div class="sidebarElement2">
+                <input placeholder="UID or Symbol"/>
+              </div>
+            </div>
+
+            <div class="colorFilter">
+              <div class="sidebarElementContainer">
+                <div class="padding-left-5 colorFilterElement1">
+                  All
+                </div>
+                <div class="colorFilterElement2">
+                  1900
+                </div>
+              </div>
+              <div class="sidebarElementContainer">
+                <div class="padding-left-5 aggregated colorFilterElement1">
+                  Aggregated
+                </div>
+                <div class="colorFilterElement2">
+                  1000
+                </div>
+              </div>
+              <div class="sidebarElementContainer active">
+                <div class="padding-left-5 approved colorFilterElement1">
+                  Ready for Agg
+                </div>
+                <div class="colorFilterElement2">
+                  500
+                </div>
+              </div>
+              <div class="sidebarElementContainer">
+                <div class="padding-left-5 in-progress colorFilterElement1">
+                  In Progress
+                </div>
+                <div class="colorFilterElement2">
+                  250
+                </div>
+              </div>
+              <div class="sidebarElementContainer">
+                <div class="padding-left-5 reject colorFilterElement1">
+                  Review or Rejected
+                </div>
+                <div class="colorFilterElement2">
+                  150
+                </div>
+              </div>
+            </div>
+
+
+            <div style="margin-top: 5px;">
+              <button class="clearFiltersButton">Clear All Filters</button>
+            </div>
+
+
+          </section>
+          <section class="sidebarSection">
+            <h4>Send Aggregate Request</h4>
+            <div><button class="aggButton">Aggregate</button></div>
+          </section>
+        </div>
+        <div class="mainArea">
+          <div class="tableWrapper">
+
+<table class="aggTable">
+
+<thead>
+
+<tr class="topWeightRow">
+<td class="px40 nowrap"></td>
+<td class="px30 nowrap"></td>
+<td class="px40 nowrap"></td>
+<td class="px50 nowrap">Fund Weight (%)</td>
+<td class="topRowTdShifted nowrap">1.8</td>
+<td class="topRowTdShifted nowrap">14.1</td>
+<td class="topRowTdShifted nowrap">2.8</td>
+<td class="topRowTdShifted nowrap">6.5</td>
+<td class="topRowTdShifted nowrap">3.4</td>
+<td class="topRowTdShifted nowrap">11.3</td>
+<td class="topRowTdShifted nowrap">1.4</td>
+<td class="topRowTdShifted nowrap">6.2</td>
+<td class="topRowTdShifted nowrap">2.3</td>
+<td class="topRowTdShifted nowrap">3.0</td>
+<td class="topRowTdShifted nowrap">4.2</td>
+<td class="topRowTdShifted nowrap">1.4</td>
+<td class="topRowTdShifted nowrap">4.2</td>
+<td class="topRowTdShifted nowrap">2.7</td>
+<td class="topRowTdShifted nowrap">2.8</td>
+<td class="topRowTdShifted nowrap">1.6</td>
+<td class="topRowTdShifted nowrap">1.6</td>
+<td class="topRowTdShifted nowrap">3.3</td>
+<td class="topRowTdShifted nowrap">3.6</td>
+<td class="topRowTdShifted nowrap">11.5</td>
+<td class="topRowTdShifted nowrap">5.1</td>
+<td class="topRowTdShifted nowrap">2.6</td>
+<td class="topRowTdShifted nowrap">0.1</td>
+<td class="topRowTdShifted nowrap">0.1</td>
+<td class="px4 nowrap"></td>
+<td class="topRowTdShifted nowrap px20" >97.5%</td>
+<td class="px50 nowrap"></td>
+<td class="px50 nowrap"></td>
+</tr>
+
+<tr>
+<th>UID</th>
+<th>Curr</th>
+<th>Symbol</th>
+<th>Bberg</th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>bondmo</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>conc</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable sleeveSelected"><span>dislo</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>eafesmmn</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>eco</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>emmn_ucits</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>europefsa</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>europemn</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>fsa</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>inlvol</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>japanmn</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>jfsa</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable sleeveSelected"><span>reits</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>retail</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>scahedge</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>styleeur</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>stylemo</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable sleeveSelected"><span>tidea</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>value</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>worldmn</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>wskew</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>www</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>test01</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>test02</span></div></th>
+<th></th>
+<th class="px40">Total</th>
+<th class="px40">nimulti</th>
+<th class="px40">Trade</th>
+</tr>
+
+
+
+
+</thead>
+<tbody>
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108.00</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17.00</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+</tbody>
+</table>
+
+
+
+          </div>
+        </div>
+      </div>
+      
+    </main>
+  </body>

@@ -1,0 +1,17 @@
+$ npx create-react-app aggregator
+
+	Success! Created aggregator at /Users/vstorozhuk/Projects/React/react-udemy-class/aggregator
+	Inside that directory, you can run several commands:
+
+	  npm start
+	    Starts the development server.
+
+	  npm run build
+	    Bundles the app into static files for production.
+
+	  npm test
+	    Starts the test runner.
+
+	  npm run eject
+	    Removes this tool and copies build dependencies, configuration files
+	    and scripts into the 
