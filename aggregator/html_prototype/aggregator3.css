@@ -3,16 +3,16 @@ body {
   padding: 0;
 }
 
-.aggregatorApp {
+.app {
   font-family: "Open Sans", Verdana, Geneva, sans-serif;
   font-size: 0.75em;
 }
 
-.aggregatorApp .layout {
+.app .layout {
   display: flex;
 }
 
-.aggregatorApp .sidebar {
+.app .sidebar {
   background-color: #F2F2F2;
   border-right: 1px solid #D8D8D8;
   width: 220px;
@@ -22,7 +22,7 @@ body {
   height: 100vh; /* makes this dic the height of the screen */
 }
 
-.aggregatorApp .sidebar h3 {
+.app .sidebar h3 {
   border-bottom: 2px solid #D8D8D8;
   margin-top: 10px;
   margin-bottom: 15px;
@@ -31,71 +31,75 @@ body {
   padding-bottom: 7px;
 }
 
-.aggregatorApp .sidebar h4 {
+.app .sidebar h4 {
   margin: 5px 0;
   padding-bottom: 4px;
   color: #777777;
 }
 
-.aggregatorApp .mainArea {
+.app .main-area {
   padding-left: 5px;
   flex: 1;
   overflow: auto; /* makes it x and y scrollable if necessary */
   height: 100vh; /* makes this div the height of the screen */
 }
 
-.aggregatorApp .tableWrapper {
+.app .table-wrapper {
   margin-top: 20px;
 }
 
-.aggregatorApp .sidebarSection {
+.app .sidebar-section {
   border-bottom: 1px solid #D8D8D8;
   margin: 10px 5px;
   padding-bottom: 10px;
   padding-top: 3px;
 }
 
-.aggregatorApp .sidebarElementContainer {
+.app .sidebar-element-container {
   display: flex;
   margin: 5px 0;
   padding: 0;  
 }
 
-.aggregatorApp .sidebarElementContainer input {
+.app .sidebar-element-container input {
   width: 90px; 
 }
 
-.aggregatorApp .sidebarElement1 {
+.app .sidebar-element-1 {
   flex: 2;
   margin-right: 3px;
   text-align: right;
 }
 
-.aggregatorApp .sidebarElement2 {
+.app .sidebar-element-2 {
   flex: 3;
 }
 
-.aggregatorApp .colorFilterElement1 {
+.app .sidebar-element-2 select {
+  width: 100px;
+}
+
+.app .color-filter-element-1 {
   flex: 3;
   margin-right: 3px;
   text-align: left;
 }
 
-.aggregatorApp .colorFilterElement2 {
+.app .color-filter-element-2 {
   flex: 1;
 }
 
-.aggregatorApp .colorFilter {
+.app .color-filter {
   display: inline-block;
 }
 
-.aggregatorApp .colorFilter > div {
+.app .color-filter > div {
   margin: 1px;
   padding: 1px 4px;
   width: 180px;
 }
 
-.aggregatorApp .colorFilter > div:hover, .aggregatorApp .colorFilter > div.active  {
+.app .color-filter > div:hover, .app .color-filter > div.active  {
   cursor: pointer;
   font-weight: bold;
 
@@ -105,27 +109,27 @@ body {
   background-size: 10px 10px;
 }
 
-.aggregatorApp .aggregated {
+.app .aggregated {
   background-color: #77DD77;
 }
 
-.aggregatorApp .approved {
+.app .approved {
   background-color: #AAFFAA;
 }
 
-.aggregatorApp .in-progress {
+.app .in-progress {
   background-color: #FFFF99;
 }
 
-.aggregatorApp .reject {
+.app .reject {
   background-color: #FFDDEE;
 }
 
-.aggregatorApp .bold {
+.app .bold {
   font-weight: bold;
 }
 
-.aggButton {
+.agg-button {
     background-color: #DADADA;
     outline: none;
     cursor: pointer;
@@ -139,23 +143,23 @@ body {
     border-radius: 3px;
 }
 
-.aggButton:hover, .aggButton:active {
+.agg-button:hover, .agg-button:active {
     background-color: #CACACA;
     border: 1px solid #BABABA;
     color: #CF3500;
 }
 
-.aggregatorApp button:active {
+.app button:active {
     box-shadow: none;
     left: 1px;
     top: 1px;
 }
 
-.aggregatorApp .padding-left-5 {
+.app .padding-left-5 {
   padding-left: 5px;
 }
 
-.aggregatorApp .clearFiltersButton {
+.app .clear-filters-button {
     background-color: #DADADA;
     outline: none;
     cursor: pointer;
@@ -169,7 +173,7 @@ body {
     box-shadow: 1px 1px 1px #BABABA;
 }
 
-.aggregatorApp .clearFiltersButton:hover, .aggregatorApp .clearFiltersButton:active {
+.app .clear-filters-button:hover, .app .clear-filters-button:active {
     background-color: #CACACA;
     color: #000000;
 }
@@ -177,7 +181,7 @@ body {
 /* 
  * Table styling 
  */
-table.aggTable {
+table.agg-table {
   font-size: 10px;
   background-color: #FFFFFF;
   text-align: right;
@@ -187,49 +191,49 @@ table.aggTable {
 }
 
 /* Some fixed columns widths */
-table.aggTable .px60 {
+table.agg-table .px60 {
   width: 60px;
 }
 
-table.aggTable .px50 {
+table.agg-table .px50 {
   width: 50px;
 }
 
-table.aggTable .px40 {
+table.agg-table .px40 {
   width: 40px;
 }
 
-table.aggTable .px30 {
+table.agg-table .px30 {
   width: 30px;
 }
 
-table.aggTable .px20 {
+table.agg-table .px20 {
   width: 20px;
 }
 
-table.aggTable .px4 {
+table.agg-table .px4 {
   width: 4px;
 }
 
-table.aggTable .nowrap {
+table.agg-table .nowrap {
   white-space: nowrap;
 }
 
 
-table.aggTable td {
+table.agg-table td {
   border: 1px solid #D0D0D0;
   padding: 2px 4px;
 }
 
-table.aggTable tbody td {
+table.agg-table tbody td {
   color: #303030;
 }
 
-table.aggTable tbody tr:nth-child(even) {
+table.agg-table tbody tr:nth-child(even) {
   background: #F8F8F8;
 }
 
-table.aggTable th {  
+table.agg-table th {  
   font-weight: bold;
   text-align: center;
   vertical-align: bottom;
@@ -239,7 +243,7 @@ table.aggTable th {
 /* 
  * BEGIN rotate headers (90 - 30) degrees styling
  */
-table.aggTable th.rotated {
+table.agg-table th.rotated {
   font-weight: bold;
   height: 70px; /* used in math computations below */
   position: relative;
@@ -248,7 +252,7 @@ table.aggTable th.rotated {
   line-height: 0.8;
 }
 
-table.aggTable th.rotated > div {
+table.agg-table th.rotated > div {
   background-color: #FAFAFA;
   position: relative;
   top: 0px;
@@ -265,11 +269,11 @@ table.aggTable th.rotated > div {
 }
 
 /* 3rd header is the 1st slanted header */
-table.aggTable th:nth-child(5).rotated > div {
+table.agg-table th:nth-child(5).rotated > div {
   border-left: 1px solid #D0D0D0;
 }
 
-table.aggTable th.rotated span {
+table.agg-table th.rotated span {
   -ms-transform:skew(30deg,0deg) rotate(300deg);
   -moz-transform:skew(30deg,0deg) rotate(300deg);
   -webkit-transform:skew(30deg,0deg) rotate(300deg);
@@ -285,37 +289,37 @@ table.aggTable th.rotated span {
   /*white-space: nowrap;*/ /*whether to display in one line or not*/
 }
 
-table.aggTable td.empty-cell {
+table.agg-table td.empty-cell {
   background-color: #FFFFFF;
   border: 0px none #FFFFFF;
   width: 4px;
 }
 
-table.aggTable td.negative {
+table.agg-table td.negative {
   color: #FF0000;
 }
 
-table.aggTable tr.topWeightRow {
+table.agg-table tr.top-weight-row {
   border: 0px none;
 }
 
-table.aggTable tr.topWeightRow td {
+table.agg-table tr.top-weight-row td {
   border: 0px none;
 }
 
-table.aggTable tr.topWeightRow td.topRowTdShifted {
+table.agg-table tr.top-weight-row td.top-row-td-shifted {
   padding-left: 48px; /* 70 tan(30) = 40 + 8 padding */
   font-weight: bold;
   text-align: left;
 }
 
-.aggregatorApp table.aggTable .selectable:hover, .aggregatorApp table.aggTable .sleeveSelected {
+.app table.agg-table .selectable:hover, .app table.agg-table .sleeve-selected {
   background-color: #008888;
   color: #EEFFFF;
   cursor: pointer;
 }
 
-.aggregatorApp img.reload {
+.app img.reload {
   padding-left: 10px; 
   width: 17px; 
   vertical-align: bottom;
