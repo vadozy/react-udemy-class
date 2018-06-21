@@ -6,17 +6,13 @@
   </head>
   <body>
     <main class="app" >
+      <div class="app-title"><h2>PIR Sleeve Aggregator</h3></div>
       <div class="layout">
         <div class="sidebar">
-          <h3>PIR Sleeve Aggregator</h3>
           <section class="sidebar-section">
-            <h4>
-              Multi-Sleeve Portfolio
-              <img src="reload.png" class="reload" title="refresh the page data" />
-            </h4>
             <div class="sidebar-element-container">
               <div class="sidebar-element-1">
-                Portfolio
+                Collapsed Portfolio
               </div>
               <div class="sidebar-element-2">
                 <select>
@@ -29,7 +25,7 @@
             </div>
             <div class="sidebar-element-container">
               <div class="sidebar-element-1">
-                Country
+                Country Group
               </div>
               <div class="sidebar-element-2">
                 <select>
@@ -39,22 +35,21 @@
                 </select>
               </div>
             </div>
-          </section>
-          <section class="sidebar-section">
-            <h4>Filters</h4>
-
             <div class="sidebar-element-container">
               <div class="sidebar-element-1">
-                UID / Symbol
+                
               </div>
               <div class="sidebar-element-2">
-                <input placeholder="UID or Symbol"/>
+                <button class="load-button">Load</button>
               </div>
             </div>
+          </section>
+          <section class="sidebar-section">
+            <h4>Aggregation Status</h4>
 
             <div class="color-filter">
               <div class="sidebar-element-container">
-                <div class="padding-left-5 color-filter-element-1">
+                <div class="color-filter-element-1">
                   All
                 </div>
                 <div class="color-filter-element-2">
@@ -62,32 +57,32 @@
                 </div>
               </div>
               <div class="sidebar-element-container">
-                <div class="padding-left-5 aggregated color-filter-element-1">
-                  Aggregated
+                <div class="aggregated color-filter-element-1">
+                  <span class="padding-left-10" >Aggregated</span>
                 </div>
                 <div class="color-filter-element-2">
                   1000
                 </div>
               </div>
               <div class="sidebar-element-container active">
-                <div class="padding-left-5 approved color-filter-element-1">
-                  Ready for Agg
+                <div class="approved color-filter-element-1">
+                  <span class="padding-left-10" >Ready for Aggr</span>
                 </div>
                 <div class="color-filter-element-2">
                   500
                 </div>
               </div>
               <div class="sidebar-element-container">
-                <div class="padding-left-5 in-progress color-filter-element-1">
-                  In Progress
+                <div class="in-progress color-filter-element-1">
+                  <span class="padding-left-10" >In Progress</span>
                 </div>
                 <div class="color-filter-element-2">
                   250
                 </div>
               </div>
               <div class="sidebar-element-container">
-                <div class="padding-left-5 reject color-filter-element-1">
-                  Review or Rejected
+                <div class="reject color-filter-element-1">
+                  <span class="padding-left-10" >Rejected</span>
                 </div>
                 <div class="color-filter-element-2">
                   150
@@ -95,20 +90,44 @@
               </div>
             </div>
 
-
-            <div style="margin-top: 5px;">
-              <button class="clear-filters-button">Clear All Filters</button>
-            </div>
-
-
           </section>
+
           <section class="sidebar-section">
-            <h4>Send Aggregate Request</h4>
-            <div><button class="agg-button">Aggregate</button></div>
+            <h4>Actions</h4>
+            <div class="align-center">
+              <button class="clear-filters-button">Reset Filters</button>
+            </div>
+            <div class="align-center">
+              <button class="agg-button">Aggregate</button>
+            </div>
           </section>
+
+          <section class="sidebar-section">
+            <h4>Legend</h4>
+
+            <ul class="legend-list">
+              <li class="item">
+                Click a sim title to filter
+              </li>
+              <li class="item">
+                Use UID lookup to find a security
+              </li>
+              <li class="item">
+                Click Aggregate button to save net fund weight for collapsed PIR sim target load
+              </li>
+            </ul>
+
+          </section>
+
         </div>
         <div class="main-area">
           <div class="table-wrapper">
+
+
+            <div class="uid-filter">
+              <input placeholder="Find UID or Symbol"/>
+            </div>
+
 
 <table class="agg-table">
 
@@ -118,7 +137,8 @@
 <td class="px40 nowrap"></td>
 <td class="px30 nowrap"></td>
 <td class="px40 nowrap"></td>
-<td class="px50 nowrap">Fund Weight (%)</td>
+<td class="px50 nowrap"></td>
+<td class="px90 nowrap"><span class="sleeve-weight">Sleeve Weight (%)</span></td>
 <td class="top-row-td-shifted nowrap">1.8</td>
 <td class="top-row-td-shifted nowrap">14.1</td>
 <td class="top-row-td-shifted nowrap">2.8</td>
@@ -144,9 +164,9 @@
 <td class="top-row-td-shifted nowrap">0.1</td>
 <td class="top-row-td-shifted nowrap">0.1</td>
 <td class="px4 nowrap"></td>
-<td class="top-row-td-shifted nowrap px20" >97.5%</td>
-<td class="px50 nowrap"></td>
-<td class="px50 nowrap"></td>
+<td class="top-row-td-shifted nowrap px10" >97.5%</td>
+<td class="px40 nowrap"></td>
+<td class="px40 nowrap"></td>
 </tr>
 
 <tr>
@@ -154,6 +174,7 @@
 <th>Curr</th>
 <th>Symbol</th>
 <th>Bberg</th>
+<th>Name</th>
 <th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>bondmo</span></div></th>
 <th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>conc</span></div></th>
 <th class="rotated"><div title="Select to find securities for this sleeve" class="selectable sleeve-selected"><span>dislo</span></div></th>
@@ -195,6 +216,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -220,7 +242,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -230,6 +252,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -255,7 +278,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -265,6 +288,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -290,7 +314,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -300,6 +324,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -325,7 +350,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -336,6 +361,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -361,7 +387,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -371,6 +397,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -396,7 +423,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -406,6 +433,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -431,7 +459,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -441,6 +469,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -466,7 +495,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -477,6 +506,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -502,7 +532,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -512,6 +542,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -537,7 +568,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -547,6 +578,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -572,7 +604,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -582,6 +614,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -607,7 +640,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -618,6 +651,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -643,7 +677,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -653,6 +687,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -678,7 +713,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -688,6 +723,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -713,7 +749,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -723,6 +759,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -748,7 +785,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -759,6 +796,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -784,7 +822,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -794,6 +832,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -819,7 +858,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -829,6 +868,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -854,7 +894,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -864,6 +904,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -889,7 +930,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -900,6 +941,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -925,7 +967,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -935,6 +977,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -960,7 +1003,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -970,6 +1013,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -995,7 +1039,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -1005,6 +1049,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -1030,7 +1075,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -1041,6 +1086,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -1066,7 +1112,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -1076,6 +1122,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -1101,7 +1148,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -1111,6 +1158,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -1136,7 +1184,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -1146,6 +1194,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -1171,7 +1220,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -1182,6 +1231,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -1207,7 +1257,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -1217,6 +1267,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -1242,7 +1293,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -1252,6 +1303,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -1277,7 +1329,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -1287,6 +1339,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -1312,7 +1365,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -1323,6 +1376,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -1348,7 +1402,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -1358,6 +1412,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -1383,7 +1438,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -1393,6 +1448,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -1418,7 +1474,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -1428,6 +1484,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -1453,7 +1510,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -1464,6 +1521,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -1489,7 +1547,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -1499,6 +1557,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -1524,7 +1583,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -1534,6 +1593,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -1559,7 +1619,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -1569,6 +1629,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -1594,7 +1655,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -1605,6 +1666,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -1630,7 +1692,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -1640,6 +1702,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -1665,7 +1728,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -1675,6 +1738,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -1700,7 +1764,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -1710,6 +1774,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -1735,7 +1800,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -1746,6 +1811,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -1771,7 +1837,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -1781,6 +1847,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -1806,7 +1873,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -1816,6 +1883,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -1841,7 +1909,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -1851,6 +1919,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -1876,7 +1945,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -1887,6 +1956,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -1912,7 +1982,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -1922,6 +1992,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -1947,7 +2018,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -1957,6 +2028,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -1982,7 +2054,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -1992,6 +2064,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -2017,7 +2090,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -2028,6 +2101,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -2053,7 +2127,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -2063,6 +2137,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -2088,7 +2163,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -2098,6 +2173,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -2123,7 +2199,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -2133,6 +2209,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -2158,7 +2235,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -2169,6 +2246,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -2194,7 +2272,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -2204,6 +2282,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -2229,7 +2308,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -2239,6 +2318,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -2264,7 +2344,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -2274,6 +2354,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -2299,7 +2380,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -2310,6 +2391,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -2335,7 +2417,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -2345,6 +2427,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -2370,7 +2453,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -2380,6 +2463,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -2405,7 +2489,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -2415,6 +2499,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -2440,7 +2525,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -2451,6 +2536,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -2476,7 +2562,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -2486,6 +2572,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -2511,7 +2598,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -2521,6 +2608,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -2546,7 +2634,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -2556,6 +2644,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -2581,7 +2670,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -2592,6 +2681,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -2617,7 +2707,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -2627,6 +2717,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -2652,7 +2743,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -2662,6 +2753,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -2687,7 +2779,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -2697,6 +2789,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -2722,7 +2815,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -2733,6 +2826,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -2758,7 +2852,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -2768,6 +2862,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -2793,7 +2888,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -2803,6 +2898,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -2828,7 +2924,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -2838,6 +2934,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -2863,7 +2960,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -2874,6 +2971,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -2899,7 +2997,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -2909,6 +3007,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -2934,7 +3033,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -2944,6 +3043,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -2969,7 +3069,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -2979,6 +3079,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -3004,7 +3105,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -3015,6 +3116,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -3040,7 +3142,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -3050,6 +3152,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -3075,7 +3178,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -3085,6 +3188,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -3110,7 +3214,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -3120,6 +3224,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -3145,7 +3250,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -3156,6 +3261,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -3181,7 +3287,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -3191,6 +3297,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -3216,7 +3323,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -3226,6 +3333,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -3251,7 +3359,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -3261,6 +3369,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -3286,7 +3395,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -3297,6 +3406,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -3322,7 +3432,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -3332,6 +3442,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -3357,7 +3468,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -3367,6 +3478,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -3392,7 +3504,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -3402,6 +3514,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -3427,7 +3540,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -3438,6 +3551,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -3463,7 +3577,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -3473,6 +3587,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -3498,7 +3613,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -3508,6 +3623,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -3533,7 +3649,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -3543,6 +3659,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -3568,7 +3685,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -3579,6 +3696,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -3604,7 +3722,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -3614,6 +3732,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -3639,7 +3758,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -3649,6 +3768,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -3674,7 +3794,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -3684,6 +3804,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -3709,7 +3830,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -3720,6 +3841,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -3745,7 +3867,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -3755,6 +3877,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -3780,7 +3903,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -3790,6 +3913,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -3815,7 +3939,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -3825,6 +3949,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -3850,7 +3975,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -3861,6 +3986,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -3886,7 +4012,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -3896,6 +4022,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -3921,7 +4048,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -3931,6 +4058,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -3956,7 +4084,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -3966,6 +4094,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -3991,7 +4120,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -4002,6 +4131,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -4027,7 +4157,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -4037,6 +4167,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -4062,7 +4193,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -4072,6 +4203,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -4097,7 +4229,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -4107,6 +4239,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -4132,7 +4265,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -4143,6 +4276,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -4168,7 +4302,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -4178,6 +4312,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -4203,7 +4338,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -4213,6 +4348,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -4238,7 +4374,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -4248,6 +4384,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -4273,7 +4410,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -4284,6 +4421,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -4309,7 +4447,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -4319,6 +4457,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -4344,7 +4483,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -4354,6 +4493,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -4379,7 +4519,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -4389,6 +4529,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -4414,7 +4555,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -4425,6 +4566,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -4450,7 +4592,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -4460,6 +4602,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -4485,7 +4628,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -4495,6 +4638,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -4520,7 +4664,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -4530,6 +4674,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -4555,7 +4700,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -4566,6 +4711,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -4591,7 +4737,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -4601,6 +4747,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -4626,7 +4773,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -4636,6 +4783,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -4661,7 +4809,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -4671,6 +4819,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -4696,7 +4845,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -4707,6 +4856,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -4732,7 +4882,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -4742,6 +4892,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -4767,7 +4918,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -4777,6 +4928,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -4802,7 +4954,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -4812,6 +4964,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -4837,7 +4990,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -4848,6 +5001,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -4873,7 +5027,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -4883,6 +5037,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -4908,7 +5063,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -4918,6 +5073,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -4943,7 +5099,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -4953,6 +5109,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -4978,7 +5135,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -4989,6 +5146,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -5014,7 +5172,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -5024,6 +5182,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -5049,7 +5208,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -5059,6 +5218,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -5084,7 +5244,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -5094,6 +5254,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -5119,7 +5280,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -5130,6 +5291,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -5155,7 +5317,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -5165,6 +5327,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -5190,7 +5353,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -5200,6 +5363,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -5225,7 +5389,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -5235,6 +5399,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -5260,7 +5425,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -5271,6 +5436,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -5296,7 +5462,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -5306,6 +5472,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -5331,7 +5498,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -5341,6 +5508,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -5366,7 +5534,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -5376,6 +5544,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -5401,7 +5570,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -5412,6 +5581,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -5437,7 +5607,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -5447,6 +5617,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -5472,7 +5643,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -5482,6 +5653,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -5507,7 +5679,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -5517,6 +5689,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -5542,7 +5715,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -5553,6 +5726,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -5578,7 +5752,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -5588,6 +5762,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -5613,7 +5788,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -5623,6 +5798,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -5648,7 +5824,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -5658,6 +5834,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -5683,7 +5860,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -5694,6 +5871,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -5719,7 +5897,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -5729,6 +5907,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -5754,7 +5933,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -5764,6 +5943,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -5789,7 +5969,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -5799,6 +5979,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -5824,7 +6005,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -5835,6 +6016,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -5860,7 +6042,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -5870,6 +6052,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -5895,7 +6078,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -5905,6 +6088,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -5930,7 +6114,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -5940,6 +6124,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -5965,7 +6150,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -5976,6 +6161,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -6001,7 +6187,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -6011,6 +6197,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -6036,7 +6223,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -6046,6 +6233,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -6071,7 +6259,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -6081,6 +6269,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -6106,7 +6295,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -6117,6 +6306,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -6142,7 +6332,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -6152,6 +6342,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -6177,7 +6368,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -6187,6 +6378,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -6212,7 +6404,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -6222,6 +6414,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -6247,7 +6440,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -6258,6 +6451,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -6283,7 +6477,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -6293,6 +6487,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -6318,7 +6513,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -6328,6 +6523,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -6353,7 +6549,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -6363,6 +6559,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -6388,7 +6585,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -6399,6 +6596,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -6424,7 +6622,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -6434,6 +6632,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -6459,7 +6658,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -6469,6 +6668,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -6494,7 +6694,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -6504,6 +6704,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -6529,7 +6730,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -6540,6 +6741,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -6565,7 +6767,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -6575,6 +6777,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -6600,7 +6803,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -6610,6 +6813,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -6635,7 +6839,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -6645,6 +6849,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -6670,7 +6875,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -6681,6 +6886,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -6706,7 +6912,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -6716,6 +6922,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -6741,7 +6948,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -6751,6 +6958,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -6776,7 +6984,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -6786,6 +6994,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -6811,7 +7020,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -6822,6 +7031,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -6847,7 +7057,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -6857,6 +7067,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -6882,7 +7093,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -6892,6 +7103,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -6917,7 +7129,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -6927,6 +7139,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -6952,7 +7165,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -6963,6 +7176,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -6988,7 +7202,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -6998,6 +7212,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -7023,7 +7238,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -7033,6 +7248,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -7058,7 +7274,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -7068,6 +7284,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -7093,7 +7310,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -7104,6 +7321,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -7129,7 +7347,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -7139,6 +7357,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -7164,7 +7383,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -7174,6 +7393,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -7199,7 +7419,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -7209,6 +7429,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -7234,7 +7455,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -7245,6 +7466,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -7270,7 +7492,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -7280,6 +7502,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -7305,7 +7528,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -7315,6 +7538,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -7340,7 +7564,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -7350,6 +7574,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -7375,7 +7600,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -7386,6 +7611,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -7411,7 +7637,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -7421,6 +7647,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -7446,7 +7673,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -7456,6 +7683,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -7481,7 +7709,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -7491,6 +7719,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -7516,7 +7745,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -7527,6 +7756,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -7552,7 +7782,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -7562,6 +7792,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -7587,7 +7818,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -7597,6 +7828,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -7622,7 +7854,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -7632,6 +7864,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -7657,7 +7890,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -7668,6 +7901,7 @@
 <td>USD</td>
 <td>TWTR</td>
 <td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
 <td></td>
 <td></td>
 <td class="aggregated">100</td>
@@ -7693,7 +7927,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold aggregated">655.00</td>
+<td class="bold aggregated">655</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -7703,6 +7937,7 @@
 <td>USD</td>
 <td>AAPL</td>
 <td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
 <td class="negative approved">-42</td>
 <td class="approved">42</td>
 <td></td>
@@ -7728,7 +7963,7 @@
 <td class="negative approved">-105</td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold negative approved">-108.00</td>
+<td class="bold negative approved">-108</td>
 <td class="bold">-???</td>
 <td class="bold">-???</td>
 </tr>
@@ -7738,6 +7973,7 @@
 <td>USD</td>
 <td>MSFT</td>
 <td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
 <td></td>
 <td></td>
 <td></td>
@@ -7763,7 +7999,7 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold in-progress">-232.00</td>
+<td class="bold in-progress">-232</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
@@ -7773,6 +8009,7 @@
 <td>USD</td>
 <td>TSLA</td>
 <td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
 <td></td>
 <td></td>
 <td class="negative approved">0</td>
@@ -7798,10 +8035,2331 @@
 <td></td>
 <td></td>
 <td class="empty-cell"></td>
-<td class="bold reject">17.00</td>
+<td class="bold reject">17</td>
 <td class="bold">123</td>
 <td class="bold">123</td>
 </tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>456789</td>
+<td>USD</td>
+<td>TWTR</td>
+<td class="nowrap">TWTR US</td>
+<td class="nowrap security-name">Twitter Name</td>
+<td></td>
+<td></td>
+<td class="aggregated">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">150</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">300</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="aggregated">105</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold aggregated">655</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>USD</td>
+<td>AAPL</td>
+<td class="nowrap">AAPL US</td>
+<td class="nowrap security-name">Apple Name</td>
+<td class="negative approved">-42</td>
+<td class="approved">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-108</td>
+<td class="bold">-???</td>
+<td class="bold">-???</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>USD</td>
+<td>MSFT</td>
+<td class="nowrap">MSFT US</td>
+<td class="nowrap security-name">Microsoft Name</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-370</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4</td>
+<td></td>
+<td class="approved">100</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">-232</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>USD</td>
+<td>TSLA</td>
+<td class="nowrap">TSLA US</td>
+<td class="nowrap security-name">Tesla Name is long ...</td>
+<td></td>
+<td></td>
+<td class="negative approved">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">17</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
 
 
 </tbody>

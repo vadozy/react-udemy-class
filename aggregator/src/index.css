@@ -1,13 +1,25 @@
-/* Global stylesheet */
-
 body {
   margin: 0;
   padding: 0;
-  font-family: "Open Sans", Calibri, sans-serif;
 }
 
 .app {
+  font-family: "Open Sans", Calibri, Arial, sans-serif;
   font-size: 0.75em;
+}
+
+.app .app-title {
+  background-color: #E9EDF5;
+  height: 20px;
+  text-align: left;
+  padding: 2px 0 1px 8px;
+  border-bottom: 1px solid #A8A8A8;
+  border-top: 1px solid #D8D8D8;
+  font-size: 0.75em;
+}
+
+.app .app-title h2 {
+  margin: 0px;
 }
 
 .app .layout {
@@ -15,13 +27,21 @@ body {
 }
 
 .app .sidebar {
-  background-color: #F2F2F2;
-  border-right: 1px solid #D8D8D8;
+  background-color: #F6F6F6;
+  border-right: 1px solid #E8E8E8;
   width: 220px;
   height: 100%;
   padding-left: 10px;
   overflow-y: auto; /* makes it vertically scrollable if necessary */
   height: 100vh; /* makes this dic the height of the screen */
+}
+
+.app .sidebar h4 {
+  margin: 5px 0;
+  font-weight: 400;
+  padding-bottom: 4px;
+  color: #565656;
+  border-bottom: 1px solid #D8D8D8;
 }
 
 .app .main-area {
@@ -31,27 +51,19 @@ body {
   height: 100vh; /* makes this div the height of the screen */
 }
 
-.app .sidebar h3 {
-  border-bottom: 2px solid #D8D8D8;
-  margin-top: 10px;
-  margin-bottom: 15px;
-  margin-left: 5px;
-  margin-right: 5px;
-  padding-bottom: 7px;
-}
-
-.app .sidebar h4 {
-  margin: 5px 0;
-  padding-bottom: 4px;
-  color: #777777;
-}
-
 .app .table-wrapper {
-  margin-top: 20px;
+  position: relative;
+  top: -10px; /* Moving uid-filter down does not free up the space, so we move this container up a bit */
+}
+
+.app .uid-filter {
+  position: relative;
+  display: inline-block;
+  left: 10px;
+  top: 55px;
 }
 
 .app .sidebar-section {
-  border-bottom: 1px solid #D8D8D8;
   margin: 10px 5px;
   padding-bottom: 10px;
   padding-top: 3px;
@@ -60,7 +72,7 @@ body {
 .app .sidebar-element-container {
   display: flex;
   margin: 5px 0;
-  padding: 0;  
+  padding: 0;
 }
 
 .app .sidebar-element-container input {
@@ -68,13 +80,15 @@ body {
 }
 
 .app .sidebar-element-1 {
-  flex: 2;
+  flex: 1;
   margin-right: 3px;
   text-align: right;
+  font-size: 0.9em;
+  padding-top: 1px;
 }
 
 .app .sidebar-element-2 {
-  flex: 3;
+  flex: 1;
 }
 
 .app .sidebar-element-2 select {
@@ -88,6 +102,8 @@ body {
 }
 
 .app .color-filter-element-2 {
+  text-align: right;
+  padding-right: 20px;
   flex: 1;
 }
 
@@ -133,24 +149,41 @@ body {
   font-weight: bold;
 }
 
-.agg-button {
-    background-color: #DADADA;
+.app .padding-left-10 {
+  padding-left: 10px;
+}
+
+.app .align-center {
+  text-align: center;
+  padding-right: 20px;
+}
+
+.app .legend-list {
+  padding-left: 10px;
+  text-align: justify;
+  padding-right: 5px;
+  font-size: 0.9em;
+}
+
+.app .legend-list .item {
+  margin-bottom: 3px;
+}
+
+.app button {
+    background-color: #EAEAEA;
     outline: none;
     cursor: pointer;
-    border: 1px solid #BABABA;
-    color: #EF5502;
+    border: 1px solid #CACACA;
+    box-shadow: 1px 1px 1px #CACACA;
     font-family: inherit;
-    font-size: 1.2em;
-    padding: 10px 30px;
-    box-shadow: 1px 1px 1px #BABABA;
+    font-size: 1.1em;
     position: relative;
     border-radius: 3px;
 }
 
-.agg-button:hover, .agg-button:active {
-    background-color: #CACACA;
+.app button:hover, .app button.active {
+    background-color: #E2E2E2;
     border: 1px solid #BABABA;
-    color: #CF3500;
 }
 
 .app button:active {
@@ -159,26 +192,32 @@ body {
     top: 1px;
 }
 
-.app .padding-left-5 {
-  padding-left: 5px;
+.agg-button {
+    color: #239923;
+    padding: 2px 30px;
+}
+
+.agg-button:hover, .agg-button:active {
+    color: #238823;
 }
 
 .app .clear-filters-button {
-    background-color: #DADADA;
-    outline: none;
-    cursor: pointer;
-    border: 1px solid #BABABA;
     color: #666666;
-    font-family: inherit;
-    font-size: 1em;
-    padding: 3px 20px;
-    position: relative;
-    border-radius: 3px;
-    box-shadow: 1px 1px 1px #BABABA;
+    padding: 2px 24px;
+    margin-bottom: 7px;
+    margin-top: 4px;
 }
 
 .app .clear-filters-button:hover, .app .clear-filters-button:active {
-    background-color: #CACACA;
+    color: #000000;
+}
+
+.app .load-button {
+    color: #666666;
+    padding: 2px 35px;
+}
+
+.app .load-button:hover, .app .load-button:active {
     color: #000000;
 }
 
@@ -191,10 +230,27 @@ table.agg-table {
   text-align: right;
   border-collapse: collapse;
   table-layout: fixed;
-  width: 1100px;
+  width: 1200px;
+}
+
+.app .security-name {
+  font-size: 0.9em;
+  text-align: left;
 }
 
 /* Some fixed columns widths */
+table.agg-table .px90 {
+  width: 90px;
+}
+
+table.agg-table .px80 {
+  width: 80px;
+}
+
+table.agg-table .p70 {
+  width: 70px;
+}
+
 table.agg-table .px60 {
   width: 60px;
 }
@@ -215,12 +271,20 @@ table.agg-table .px20 {
   width: 20px;
 }
 
+table.agg-table .px10 {
+  width: 10px;
+}
+
 table.agg-table .px4 {
   width: 4px;
 }
 
 table.agg-table .nowrap {
   white-space: nowrap;
+}
+
+table.agg-table .sleeve-weight {
+  padding-left: 40px;
 }
 
 
@@ -318,8 +382,8 @@ table.agg-table tr.top-weight-row td.top-row-td-shifted {
 }
 
 .app table.agg-table .selectable:hover, .app table.agg-table .sleeve-selected {
-  background-color: #008888;
-  color: #EEFFFF;
+  background-color: #8AFAFA;
+  color: #900000;
   cursor: pointer;
 }
 
@@ -329,5 +393,3 @@ table.agg-table tr.top-weight-row td.top-row-td-shifted {
   vertical-align: bottom;
   cursor: pointer;
 }
-
-
