@@ -87,7 +87,7 @@ const sidebar = props => {
       <section className="sidebar-section">
         <h4>Actions</h4>
         <div className="align-center">
-          <button className="clear-filters-button">Reset Filters</button>
+          <button className="clear-filters-button" onClick={props.resetFiltersClick} >Reset Filters</button>
         </div>
         <div className="align-center">
           <button className="agg-button">Aggregate</button>

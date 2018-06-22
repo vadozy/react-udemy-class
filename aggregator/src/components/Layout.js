@@ -5,18 +5,15 @@ import Table from './Table';
 
 const layout = props => {
   return (
-    <div className="layout">
-      <Sidebar
-        multisleeve={props.multisleeve}
-        filters={props.filters}
-        portfolioChange={props.portfolioChange}
-        countryChange={props.countryChange}
-        filterClick={props.filterClick}
-      />
-      <div className="main-area">
-        <Table />
+    <React.Fragment>
+      <div className="layout">
+        <Sidebar {...props} />
+        <div className="main-area">
+          <div className="app-title" style={{width: props.tableWidth}}><h2>PIR Sleeve Aggregator</h2></div>
+          <Table {...props} />
+        </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 

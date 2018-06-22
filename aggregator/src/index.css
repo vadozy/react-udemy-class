@@ -45,13 +45,13 @@ body {
 }
 
 .app .main-area {
-  padding-left: 5px;
   flex: 1;
   overflow: auto; /* makes it x and y scrollable if necessary */
   height: 100vh; /* makes this div the height of the screen */
 }
 
 .app .table-wrapper {
+  padding-left: 5px;
   position: relative;
   top: -10px; /* Moving uid-filter down does not free up the space, so we move this container up a bit */
 }
@@ -230,7 +230,6 @@ table.agg-table {
   text-align: right;
   border-collapse: collapse;
   table-layout: fixed;
-  width: 1200px;
 }
 
 .app .security-name {
@@ -297,9 +296,11 @@ table.agg-table tbody td {
   color: #303030;
 }
 
+/*
 table.agg-table tbody tr:nth-child(even) {
   background: #F8F8F8;
 }
+*/
 
 table.agg-table th {  
   font-weight: bold;
@@ -381,10 +382,14 @@ table.agg-table tr.top-weight-row td.top-row-td-shifted {
   text-align: left;
 }
 
-.app table.agg-table .selectable:hover, .app table.agg-table .sleeve-selected {
+.app table.agg-table .selectable:hover {
+  color: #CC0000;
+  cursor: pointer;
+}
+
+.app table.agg-table .sleeve-selected {
   background-color: #8AFAFA;
   color: #900000;
-  cursor: pointer;
 }
 
 .app img.reload {

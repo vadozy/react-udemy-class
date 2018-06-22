@@ -1,63 +1,69 @@
 import React, { Component } from 'react';
 
 import Layout from '../components/Layout';
+import G from './MockDataGenerator';
 
 class App extends Component {
 
-  state = {
+  state = G.init('nimulti').state;
 
-    multisleeve: {
-      portfolios: ['10sleeves', 'nimulti', '30sleeves', '50sleeves', '70sleeves', '100sleeves'], // portfolios drop-down values
-      portfolio: 'nimulti', // portfolios drop-down currently selected value
-      countries: ['East', 'West', 'Some very long contry name'], // countries drop-down values
-      country: 'West', // countries drop-down currently selected value
-    },
-
-    filters: {
-
-      security: null,
-
-      all: true,
-      allCount: 1900,
-
-      aggregated: false,
-      aggregatedCount: 1000,
-
-      ready: false,
-      readyCount: 500,
-
-      progress: false,
-      progressCount: 250,
-
-      rejected: false,
-      rejectedCount: 150
-
-    },
-
-    data: {
-
-    }
-
-  };
+  tableWidth () {
+    const ret = (450 + this.state.data.sleeves.length * 31) + "px";
+    console.log(ret);
+    return ret;
+  }
 
   portfolioChangeHandler = event => {
     const m = {...this.state.multisleeve};
     m.portfolio = event.target.value;
-    this.setState({multisleeve: m});
-  };
+    this.setState(G.init(m.portfolio).state);
+  }
 
   countryChangeHandler = event => {
     const m = {...this.state.multisleeve};
     m.country = event.target.value;
     this.setState({multisleeve: m});
-  };
+  }
 
   filterToggleHandler = v => {
     const f = {...this.state.filters};
     f[v] = !f[v];
     this.reconcileFilterChecks(f, v);
     this.setState({filters: f});
-  };
+  }
+
+  sleeveToggleHandler = s => {
+
+    const filters = {...this.state.filters};
+
+    const ind = filters.selectedSleeves.indexOf(s);
+    if (ind < 0) {
+      filters.selectedSleeves.push(s);
+    } else {
+      filters.selectedSleeves.splice(ind, 1);
+    }
+
+    this.setState({filters: filters});
+
+  }
+
+  resetFiltersHandler = () => {
+
+    const filters = {...this.state.filters};
+
+    filters.security = null;
+    filters.all = true;
+    filters.aggregated = false;
+    filters.ready = false;
+    filters.progress = false;
+    filters.rejected = false;
+
+    filters.selectedSleeves = [];
+
+    this.setState({
+      filters: filters
+    });
+  }
 
   reconcileFilterChecks(f, v) {
     if (f.aggregated === false &&
@@ -86,6 +92,11 @@ class App extends Component {
           portfolioChange={this.portfolioChangeHandler}
           countryChange={this.countryChangeHandler}
           filterClick={this.filterToggleHandler}
+          resetFiltersClick={this.resetFiltersHandler}
+
+          tableWidth={this.tableWidth()}
+          data={this.state.data}
+          sleeveClick={this.sleeveToggleHandler}
         />
       </div>
     );
