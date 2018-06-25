@@ -1,7 +1,9 @@
+const MAX_ROWS_TO_GENERATE = 4000;
+
 class MockDataGenerator {
 
   // Next are nimulti sleeves to populate state from
-  SLEEVES = ["bondmo", "conc", "dislo", "eafesmmn", "eco", "emmn_ucits", "europefsa", "europemn", "fsa", "inlvol", "japanmn", "jfsa", "reits", "retail", "scahedge", "styleeur", "stylemo", "tidea", "value", "worldmn", "wskew", "www", "test1", "test2"];
+  SLEEVES_POOL = ["bondmo", "conc", "dislo", "eafesmmn", "eco", "emmn_ucits", "europefsa", "europemn", "fsa", "inlvol", "japanmn", "jfsa", "reits", "retail", "scahedge", "styleeur", "stylemo", "tidea", "value", "worldmn", "wskew", "www"];
 
   state = {
 
@@ -14,22 +16,22 @@ class MockDataGenerator {
 
     filters: {
 
-      security: null,
+      security: "",
 
       all: true,
-      allCount: 1900,
+      allCount: 0,
 
       aggregated: false,
-      aggregatedCount: 1000,
+      aggregatedCount: 0,
 
       ready: false,
-      readyCount: 500,
+      readyCount: 0,
 
       progress: false,
-      progressCount: 250,
+      progressCount: 0,
 
       rejected: false,
-      rejectedCount: 150,
+      rejectedCount: 0,
 
       selectedSleeves: [],
 
@@ -39,7 +41,11 @@ class MockDataGenerator {
       sleeves: [],
       weights: [],
       rows: []
-    }
+    },
+
+    visibleRows: 0,
+    totalRows: 0,
+    refreshTable: true // set to false to skip updating the table. Do not forget to set it back to true.
 
   };
 
@@ -54,7 +60,6 @@ class MockDataGenerator {
 
   generateSleevesWeights() {
     const ret = [];
-    console.log(this.state);
     const n = this.state.data.sleeves.length;
 
     let max = 200;
@@ -74,8 +79,8 @@ class MockDataGenerator {
   	const ret = [];
 
     for (let i = 0; i < n; i++) {
-      let ind = Math.floor(Math.random() * this.SLEEVES.length);
-      ret.push(this.SLEEVES[ind] + i);
+      let ind = Math.floor(Math.random() * this.SLEEVES_POOL.length);
+      ret.push(this.SLEEVES_POOL[ind] + i);
     }
 
   	return ret;
@@ -86,7 +91,7 @@ class MockDataGenerator {
     if (p === '10sleeves') {
       return this.generateSleeves(10);
     } else if (p === 'nimulti') {
-      return [...this.SLEEVES];
+      return [...this.SLEEVES_POOL];
     } else if (p === '30sleeves') {
       return this.generateSleeves(30);
     } else if (p === '50sleeves') {
@@ -161,7 +166,7 @@ class MockDataGenerator {
     const ret = [];
 
     let row = null;
-    for (let i = 0; i < 10000; i++) {
+    for (let i = 0; i < MAX_ROWS_TO_GENERATE; i++) {
       row = {};
       row.uid = this.generateUID();
       row.currency = "USD";
@@ -173,17 +178,34 @@ class MockDataGenerator {
 
       const totalStatus = this.computeTotalStatus(row.rowData);
 
+      if (totalStatus === "") continue;
+
       row.total = {
-        value: 42,
+        value: row.rowData.map(el => Number(el.value)).reduce((total, el) => total + el),
         status: totalStatus
       };
-      row.portfolio = "what?"
-      row.trade = "???"
+      row.portfolio = "? ?"
+      row.trade = ":-)"
 
+      this.updateCounts(totalStatus);
       ret.push(row);
     }
 
     return ret;
+  }
+
+  updateCounts(status) {
+    this.state.filters.allCount++;
+
+    if (status === 'aggregated') {
+      this.state.filters.aggregatedCount++;
+    } else if (status === 'approved') {
+      this.state.filters.readyCount++;
+    } else if (status === 'in-progress') {
+      this.state.filters.progressCount++;
+    } else if (status === 'reject') {
+      this.state.filters.rejectedCount++;
+    }
   }
 
   computeTotalStatus(c) {
@@ -203,7 +225,7 @@ class MockDataGenerator {
 
     if (aggregatedFound) ret = "aggregated";
     if (approvedFound) ret = "approved";
-    if (inProgressFound) ret = "n-progress";
+    if (inProgressFound) ret = "in-progress";
     if (rejectFound) ret = "reject";
 
     return ret;

@@ -7,29 +7,59 @@ class App extends Component {
 
   state = G.init('nimulti').state;
 
+  visibleRows = 0;
+  totalRows = 0;
+
+  delayedRefresh = null;
+
+  refreshTableWithDelay = ms => {
+    clearTimeout(this.delayedRefresh);
+
+    this.delayedRefresh = setTimeout(() => {
+      //console.log("Inside Delayed Refresh: this.visibleRows=%s, this.totalRows=%s", this.visibleRows, this.totalRows);
+
+      this.setState({refreshTable: true});
+
+      this.setState({
+        refreshTable: false,
+        visibleRows: this.visibleRows,
+        totalRows: this.totalRows});
+
+    }, ms);
+  }
+
   tableWidth () {
     const ret = (450 + this.state.data.sleeves.length * 31) + "px";
-    console.log(ret);
     return ret;
   }
 
   portfolioChangeHandler = event => {
     const m = {...this.state.multisleeve};
     m.portfolio = event.target.value;
-    this.setState(G.init(m.portfolio).state);
+
+    let state = G.init(m.portfolio).state;
+    state.refreshTable = false;
+
+    this.setState(state);
+    this.refreshTableWithDelay(200);
   }
 
   countryChangeHandler = event => {
     const m = {...this.state.multisleeve};
     m.country = event.target.value;
-    this.setState({multisleeve: m});
+
+    this.setState({multisleeve: m, refreshTable:false, visibleRows:0, totalRows:0});
+    this.refreshTableWithDelay(200);
   }
 
   filterToggleHandler = v => {
     const f = {...this.state.filters};
     f[v] = !f[v];
     this.reconcileFilterChecks(f, v);
-    this.setState({filters: f});
+    
+    this.setState({filters: f, refreshTable:false, visibleRows:0, totalRows:0});
+    this.refreshTableWithDelay(200);
+
   }
 
   sleeveToggleHandler = s => {
@@ -43,7 +73,8 @@ class App extends Component {
       filters.selectedSleeves.splice(ind, 1);
     }
 
-    this.setState({filters: filters});
+    this.setState({filters: filters, refreshTable:false, visibleRows:0, totalRows:0});
+    this.refreshTableWithDelay(200);
 
   }
 
@@ -51,18 +82,32 @@ class App extends Component {
 
     const filters = {...this.state.filters};
 
-    filters.security = null;
+    filters.security = "";
     filters.all = true;
     filters.aggregated = false;
     filters.ready = false;
     filters.progress = false;
     filters.rejected = false;
 
-    filters.selectedSleeves = [];
+    filters.selectedSleeves.splice(0);
 
-    this.setState({
-      filters: filters
-    });
+    this.setState({filters: filters, refreshTable:false, visibleRows:0, totalRows:0});
+    this.refreshTableWithDelay(200);
+
+  }
+
+  securityChangeHandler = s => {
+    const filters = {...this.state.filters};
+    filters.security = s;
+
+    this.setState({filters: filters, refreshTable:false, visibleRows:0, totalRows:0});
+    this.refreshTableWithDelay(1000);
+  }
+
+  updateCountsHandler = (visibleRows, totalRows) => {
+    this.visibleRows = visibleRows;
+    this.totalRows = totalRows;
+    //console.log("Inside updateCountsHandler", this.visibleRows, this.totalRows);
   }
 
   reconcileFilterChecks(f, v) {
@@ -83,6 +128,10 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+    this.refreshTableWithDelay(200); // Initial load of data
+  }
+
   render() {
     return (
       <div className="app">
@@ -93,10 +142,15 @@ class App extends Component {
           countryChange={this.countryChangeHandler}
           filterClick={this.filterToggleHandler}
           resetFiltersClick={this.resetFiltersHandler}
+          visibleRows={this.state.visibleRows}
+          totalRows={this.state.totalRows}
 
           tableWidth={this.tableWidth()}
           data={this.state.data}
           sleeveClick={this.sleeveToggleHandler}
+          securityChange={this.securityChangeHandler}
+          refreshTable={this.state.refreshTable}
+          updateCounts={this.updateCountsHandler}
         />
       </div>
     );

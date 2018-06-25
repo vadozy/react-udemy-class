@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Sidebar from './Sidebar';
-import Table from './Table';
+import TableWrapper from './TableWrapper';
 
 const layout = props => {
   return (
@@ -10,7 +10,7 @@ const layout = props => {
         <Sidebar {...props} />
         <div className="main-area">
           <div className="app-title" style={{width: props.tableWidth}}><h2>PIR Sleeve Aggregator</h2></div>
-          <Table {...props} />
+          <TableWrapper {...props} />
         </div>
       </div>
     </React.Fragment>
