@@ -25,7 +25,7 @@ class TableBody extends Component {
     function hideRow(row, filters) {
 
       const s = filters.security.trim();
-      if (s.length > 0 && !(String(row.uid).includes(s) || row.symbol.toUpperCase().includes(s.toUpperCase()))) {
+      if (s.length > 0 && String(row.uid).indexOf(s) < 0 && row.symbol.toUpperCase().indexOf(s.toUpperCase()) < 0) {
         //console.log("HIDE 1");
         return true;
       }

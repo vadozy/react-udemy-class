@@ -46,7 +46,8 @@ const table = props => (
 
     </thead>
 
-    <TableBody {...props} />
+    {props.showTableBody ? <TableBody {...props} /> : null }
+
   </table>
 
 )

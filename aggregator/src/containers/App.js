@@ -18,10 +18,9 @@ class App extends Component {
     this.delayedRefresh = setTimeout(() => {
       //console.log("Inside Delayed Refresh: this.visibleRows=%s, this.totalRows=%s", this.visibleRows, this.totalRows);
 
-      this.setState({refreshTable: true});
+      this.setState({refreshTable: true, showTableBody: true});
 
       this.setState({
-        refreshTable: false,
         visibleRows: this.visibleRows,
         totalRows: this.totalRows});
 
@@ -39,6 +38,7 @@ class App extends Component {
 
     let state = G.init(m.portfolio).state;
     state.refreshTable = false;
+    state.showTableBody = false;
 
     this.setState(state);
     this.refreshTableWithDelay(200);
@@ -101,7 +101,7 @@ class App extends Component {
     filters.security = s;
 
     this.setState({filters: filters, refreshTable:false, visibleRows:0, totalRows:0});
-    this.refreshTableWithDelay(1000);
+    this.refreshTableWithDelay(1200);
   }
 
   updateCountsHandler = (visibleRows, totalRows) => {
@@ -150,6 +150,7 @@ class App extends Component {
           sleeveClick={this.sleeveToggleHandler}
           securityChange={this.securityChangeHandler}
           refreshTable={this.state.refreshTable}
+          showTableBody={this.state.showTableBody}
           updateCounts={this.updateCountsHandler}
         />
       </div>
