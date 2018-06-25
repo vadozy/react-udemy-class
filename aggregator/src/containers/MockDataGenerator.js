@@ -51,6 +51,14 @@ class MockDataGenerator {
 
   init(portfolio) {
     this.state.multisleeve.portfolio = portfolio;
+    this.state.filters.selectedSleeves.splice(0);
+    this.state.filters.allCount = 0;
+    this.state.filters.aggregatedCount = 0;
+    this.state.filters.readyCount = 0;
+    this.state.filters.progressCount = 0;
+    this.state.filters.rejectedCount = 0;
+    
+
     this.state.data.sleeves = this.generateSleevesForPortfolio(portfolio);
     this.state.data.weights = this.generateSleevesWeights();
     this.state.data.rows = this.generateRows();
