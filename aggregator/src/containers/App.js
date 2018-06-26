@@ -21,6 +21,7 @@ class App extends Component {
       this.setState({refreshTable: true, showTableBody: true});
 
       this.setState({
+        refreshTable: false,
         visibleRows: this.visibleRows,
         totalRows: this.totalRows});
 
