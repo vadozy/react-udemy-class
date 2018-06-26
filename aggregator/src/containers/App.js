@@ -41,7 +41,7 @@ class App extends Component {
     state.showTableBody = false;
 
     this.setState(state);
-    this.refreshTableWithDelay(200);
+    this.refreshTableWithDelay(100);
   }
 
   countryChangeHandler = event => {
@@ -49,7 +49,7 @@ class App extends Component {
     m.country = event.target.value;
 
     this.setState({multisleeve: m, refreshTable:false, visibleRows:0, totalRows:0});
-    this.refreshTableWithDelay(200);
+    this.refreshTableWithDelay(100);
   }
 
   filterToggleHandler = v => {
@@ -58,7 +58,7 @@ class App extends Component {
     this.reconcileFilterChecks(f, v);
     
     this.setState({filters: f, refreshTable:false, visibleRows:0, totalRows:0});
-    this.refreshTableWithDelay(200);
+    this.refreshTableWithDelay(100);
 
   }
 
@@ -74,7 +74,7 @@ class App extends Component {
     }
 
     this.setState({filters: filters, refreshTable:false, visibleRows:0, totalRows:0});
-    this.refreshTableWithDelay(200);
+    this.refreshTableWithDelay(100);
 
   }
 
@@ -92,7 +92,7 @@ class App extends Component {
     filters.selectedSleeves.splice(0);
 
     this.setState({filters: filters, refreshTable:false, visibleRows:0, totalRows:0});
-    this.refreshTableWithDelay(200);
+    this.refreshTableWithDelay(100);
 
   }
 
@@ -101,7 +101,7 @@ class App extends Component {
     filters.security = s;
 
     this.setState({filters: filters, refreshTable:false, visibleRows:0, totalRows:0});
-    this.refreshTableWithDelay(1200);
+    this.refreshTableWithDelay(800);
   }
 
   updateCountsHandler = (visibleRows, totalRows) => {
@@ -129,7 +129,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.refreshTableWithDelay(200); // Initial load of data
+    this.refreshTableWithDelay(100); // Initial load of data
   }
 
   render() {
