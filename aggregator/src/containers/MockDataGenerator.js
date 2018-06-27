@@ -1,4 +1,4 @@
-const MAX_ROWS_TO_GENERATE = 4000;
+const MAX_ROWS_TO_GENERATE = 40;
 
 class MockDataGenerator {
 
@@ -43,8 +43,6 @@ class MockDataGenerator {
       rows: []
     },
 
-    visibleRows: 0,
-    totalRows: 0,
     refreshTable: true, // set to false to skip updating the table. Do not forget to set it back to true.
     showTableBody: true, // this was added only for IE, which renders table badly when number of th elements exceeds number of td
 

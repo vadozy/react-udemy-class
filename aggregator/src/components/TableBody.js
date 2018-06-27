@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-const MAX_ROWS = 300;
-
 class TableBody extends Component {
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -16,17 +14,12 @@ class TableBody extends Component {
 
   render() {
 
-    let visibleRows = 0;
-    let totalRows = 0;
-    this.props.updateCounts(visibleRows, totalRows);
-
     const selectedSleevesIndexes = this.props.filters.selectedSleeves.map(s => this.props.data.sleeves.indexOf(s));
 
     function hideRow(row, filters) {
 
       const s = filters.security.trim();
       if (s.length > 0 && String(row.uid).indexOf(s) < 0 && row.symbol.toUpperCase().indexOf(s.toUpperCase()) < 0) {
-        //console.log("HIDE 1");
         return true;
       }
 
@@ -36,23 +29,18 @@ class TableBody extends Component {
               (filters.progress && (row.total.status  === 'in-progress')) ||
               (filters.rejected && (row.total.status  === 'reject'))
           )) {
-        //console.log("HIDE 2");
         return true;
       }
 
       if ( selectedSleevesIndexes.length > 0 && 
           !selectedSleevesIndexes.reduce((result, i) => result || row.rowData[i].status, false) ) {
-        //console.log("HIDE 3");
         return true;
       }
 
-      totalRows++;
-      //console.log("SHOW 4");
       return false;
     }
 
     return (
-
       <tbody>
 
         {this.props.data.rows.map((row, index) => {
@@ -60,14 +48,7 @@ class TableBody extends Component {
           let securityName = row.name;
           if(securityName.length > 19) securityName = securityName.substring(0,18) + "...";
 
-
-          this.props.updateCounts(visibleRows, totalRows);
-          if (hideRow(row, this.props.filters) || visibleRows >= MAX_ROWS) {
-            this.props.updateCounts(visibleRows, totalRows);
-            return null;
-          } 
-
-          this.props.updateCounts(++visibleRows, totalRows);
+          if (hideRow(row, this.props.filters)) return null;
 
           const totalClasses = ['nowrap', 'bold', row.total.status];
           return (

@@ -7,10 +7,11 @@ const layout = props => {
   return (
     <React.Fragment>
       <div className="layout">
-        <Sidebar {...props} />
+        <Sidebar />
         <div className="main-area">
-          <div className="app-title" style={{width: props.tableWidth}}><h2>PIR Sleeve Aggregator</h2></div>
-          <TableWrapper {...props} />
+          <div>Main Area</div>
+          {/*<div className="app-title" style={{width: props.tableWidth}}><h2>PIR Sleeve Aggregator</h2></div>*/}
+          {/*<TableWrapper {...props} />*/}
         </div>
       </div>
     </React.Fragment>

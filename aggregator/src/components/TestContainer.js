@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TestChunk from './TestChunk';
 
-const CHUNK_DELAY_MS = 2000;
+const CHUNK_DELAY_MS = 5000;
 
 class TestContainer extends Component {
 
@@ -52,6 +52,11 @@ class TestContainer extends Component {
 
   componentDidMount() {
     console.log('componentDidMount() TestContainer');
+  }
+
+  shouldComponentUpdate() {
+    console.log('shouldComponentUpdate() TestContainer', this.props.refreshTable);
+    return this.props.refreshTable ? true : false;
   }
 
   render() {
