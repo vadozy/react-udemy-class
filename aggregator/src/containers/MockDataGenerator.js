@@ -46,7 +46,7 @@ class MockDataGenerator {
     visibleRows: 0,
     totalRows: 0,
     refreshTable: true, // set to false to skip updating the table. Do not forget to set it back to true.
-    showTableBody: true, // this was added only for IE, which renders table badly when number of th elements eceeds number of td
+    showTableBody: true, // this was added only for IE, which renders table badly when number of th elements exceeds number of td
 
   };
 
@@ -113,8 +113,9 @@ class MockDataGenerator {
 
   }
 
-  generateUID() {
-    return Math.floor(Math.random() * 500000) + 100000;
+  generateUID(i) {
+    //return Math.floor(Math.random() * 500000) + 100000;
+    return 555555 + i;
   }
 
   generateSymbol() {
@@ -177,7 +178,7 @@ class MockDataGenerator {
     let row = null;
     for (let i = 0; i < MAX_ROWS_TO_GENERATE; i++) {
       row = {};
-      row.uid = this.generateUID();
+      row.uid = this.generateUID(i);
       row.currency = "USD";
       row.symbol = this.generateSymbol();
       row.bb = row.symbol.substring(0, 4) + " US";

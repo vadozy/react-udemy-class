@@ -130,7 +130,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.refreshTableWithDelay(100); // Initial load of data
+    //this.refreshTableWithDelay(100); // Initial load of data
   }
 
   render() {
