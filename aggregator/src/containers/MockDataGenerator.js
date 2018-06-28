@@ -2,72 +2,31 @@ const MAX_ROWS_TO_GENERATE = 40;
 
 class MockDataGenerator {
 
-  // Next are nimulti sleeves to populate state from
+  // Next are nimulti sleeves tas samples
   SLEEVES_POOL = ["bondmo", "conc", "dislo", "eafesmmn", "eco", "emmn_ucits", "europefsa", "europemn", "fsa", "inlvol", "japanmn", "jfsa", "reits", "retail", "scahedge", "styleeur", "stylemo", "tidea", "value", "worldmn", "wskew", "www"];
 
-  state = {
-
-    multisleeve: {
-      portfolios: ['10sleeves', 'nimulti', '30sleeves', '50sleeves', '70sleeves', '100sleeves'], // portfolios drop-down values
-      portfolio: 'nimulti', // portfolios drop-down currently selected value
-      countries: ['East', 'West', 'Some very long contry name'], // countries drop-down values
-      country: 'West', // countries drop-down currently selected value
-    },
-
-    filters: {
-
-      security: "",
-
-      all: true,
-      allCount: 0,
-
-      aggregated: false,
-      aggregatedCount: 0,
-
-      ready: false,
-      readyCount: 0,
-
-      progress: false,
-      progressCount: 0,
-
-      rejected: false,
-      rejectedCount: 0,
-
-      selectedSleeves: [],
-
-    },
-
-    data: {
-      sleeves: [],
-      weights: [],
-      rows: []
-    },
-
-    refreshTable: true, // set to false to skip updating the table. Do not forget to set it back to true.
-    showTableBody: true, // this was added only for IE, which renders table badly when number of th elements exceeds number of td
-
+  data = {
+    sleeves: [],
+    weights: [],
+    rows: []
   };
 
-  init(portfolio) {
-    this.state.multisleeve.portfolio = portfolio;
-    this.state.filters.selectedSleeves.splice(0);
-    this.state.filters.allCount = 0;
-    this.state.filters.aggregatedCount = 0;
-    this.state.filters.readyCount = 0;
-    this.state.filters.progressCount = 0;
-    this.state.filters.rejectedCount = 0;
-    
+  getData(portfolio, filters) {
 
-    this.state.data.sleeves = this.generateSleevesForPortfolio(portfolio);
-    this.state.data.weights = this.generateSleevesWeights();
-    this.state.data.rows = this.generateRows();
+    console.log('MockDataGenerator.init()');
 
-    return this;
+    this.filters = filters;
+
+    this.data.sleeves = this.generateSleevesForPortfolio(portfolio);
+    this.data.weights = this.generateSleevesWeights();
+    this.data.rows = this.generateRows();
+
+    return this.data;
   }
 
   generateSleevesWeights() {
     const ret = [];
-    const n = this.state.data.sleeves.length;
+    const n = this.data.sleeves.length;
 
     let max = 200;
 
@@ -203,16 +162,16 @@ class MockDataGenerator {
   }
 
   updateCounts(status) {
-    this.state.filters.allCount++;
+    this.filters.allCount++;
 
     if (status === 'aggregated') {
-      this.state.filters.aggregatedCount++;
+      this.filters.aggregatedCount++;
     } else if (status === 'approved') {
-      this.state.filters.readyCount++;
+      this.filters.readyCount++;
     } else if (status === 'in-progress') {
-      this.state.filters.progressCount++;
+      this.filters.progressCount++;
     } else if (status === 'reject') {
-      this.state.filters.rejectedCount++;
+      this.filters.rejectedCount++;
     }
   }
 
@@ -245,7 +204,7 @@ class MockDataGenerator {
     const statuses = ["aggregated", "approved", "in-progress", "reject"];
     let randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
 
-    for (let i = 0; i < this.state.data.sleeves.length; i++) {
+    for (let i = 0; i < this.data.sleeves.length; i++) {
       let cell = this.generateCellValue(randomStatus);
       ret.push(cell);
     }
