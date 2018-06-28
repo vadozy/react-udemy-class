@@ -98,6 +98,9 @@ const sidebar = props => {
 
         <ul className="legend-list">
           <li className="item">
+            <span className="bold">{props.filteredRowsRenderedCount}/{props.filteredRowsCount}</span> rows rendered
+          </li>
+          <li className="item">
             Click a sim title to filter
           </li>
           <li className="item">

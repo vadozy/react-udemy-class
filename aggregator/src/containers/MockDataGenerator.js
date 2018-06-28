@@ -1,4 +1,4 @@
-const MAX_ROWS_TO_GENERATE = 40;
+const MAX_ROWS_TO_GENERATE = 5000;
 
 class MockDataGenerator {
 
@@ -12,9 +12,6 @@ class MockDataGenerator {
   };
 
   getData(portfolio, filters) {
-
-    console.log('MockDataGenerator.init()');
-
     this.filters = filters;
 
     this.data.sleeves = this.generateSleevesForPortfolio(portfolio);
@@ -72,7 +69,7 @@ class MockDataGenerator {
 
   generateUID(i) {
     //return Math.floor(Math.random() * 500000) + 100000;
-    return 555555 + i;
+    return 500001 + i;
   }
 
   generateSymbol() {

@@ -1,84 +1,69 @@
 import React, { Component } from 'react';
+import TableBodyChunk from './TableBodyChunk';
+
+const CHUNK_DELAY_MS = 200;
+const CHUNK_SIZE = 100; // number of table rows in one chunk
 
 class TableBody extends Component {
 
-  shouldComponentUpdate(nextProps, nextState) {
-      if (nextProps.refreshTable) {
-        console.log("UPDATING");
-        return true;
-      } else {
-        console.log("SKIPPING UPDATE");
-        return false;
-      }
+  delayedChunkedRender = null;
+  currentChunk = 0;
+  chunks = []; // array of chunks (each chunk is an array of data elements)
+
+  state = {
+    update: true // always set state internally to true to trigger the update
+  };
+
+  externalChangeInitiated = props => {
+    clearTimeout(this.delayedChunkedRender);
+    this.delayedChunkedRender = null;
+    this.currentChunk = 0;
+    
+    this.chunks.splice(0);
+    for (let i = 0; i < props.rows.length; i = i + CHUNK_SIZE) {
+      this.chunks.push(props.rows.slice(i, i + CHUNK_SIZE));
+    }
+  }
+
+  scheduleNextChunkRender = () => {
+    if (this.currentChunk < this.chunks.length) {
+      this.delayedChunkedRender = setTimeout(() => {
+        this.setState({update: true})
+      }, CHUNK_DELAY_MS);
+    }
+  }
+
+  constructor(props) {
+    super(props);
+    this.externalChangeInitiated(props);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.externalChangeInitiated(nextProps);
+  }
+
+  componentDidUpdate() {
+    const rendered = this.chunks.reduce((total, el, i) => { return i < this.currentChunk ? this.chunks[i].length + total : total}, 0)
+    const total = this.props.rows.length;
+    this.props.setFilteredRowsCount(rendered, total);
+
+    this.scheduleNextChunkRender();
   }
 
   render() {
 
-    const selectedSleevesIndexes = this.props.filters.selectedSleeves.map(s => this.props.data.sleeves.indexOf(s));
-
-    function hideRow(row, filters) {
-
-      const s = filters.security.trim();
-      if (s.length > 0 && String(row.uid).indexOf(s) < 0 && row.symbol.toUpperCase().indexOf(s.toUpperCase()) < 0) {
-        return true;
-      }
-
-      if (!filters.all && !(
-              (filters.aggregated && (row.total.status === 'aggregated')) ||
-              (filters.ready && (row.total.status  === 'approved')) ||
-              (filters.progress && (row.total.status  === 'in-progress')) ||
-              (filters.rejected && (row.total.status  === 'reject'))
-          )) {
-        return true;
-      }
-
-      if ( selectedSleevesIndexes.length > 0 && 
-          !selectedSleevesIndexes.reduce((result, i) => result || row.rowData[i].status, false) ) {
-        return true;
-      }
-
-      return false;
+    const chunks = [];
+    for (let i = 0; i <= this.currentChunk; i++) {
+      chunks.push(<TableBodyChunk key={i} rows={this.chunks[i]} shouldUpdate={i === this.currentChunk}/>);
     }
+
+    if (this.chunks[0] === undefined) return null;
+
+    this.currentChunk++;
 
     return (
       <tbody>
-
-        {this.props.data.rows.map((row, index) => {
-
-          let securityName = row.name;
-          if(securityName.length > 19) securityName = securityName.substring(0,18) + "...";
-
-          if (hideRow(row, this.props.filters)) return null;
-
-          const totalClasses = ['nowrap', 'bold', row.total.status];
-          return (
-            <tr key={index}>
-              <td className="nowrap">{row.uid}</td>
-              <td className="nowrap">{row.currency}</td>
-              <td className="nowrap left">{row.symbol}</td>
-              <td className="nowrap left">{row.bb}</td>
-              <td className="nowrap security-name">{securityName}</td>
-
-              {row.rowData.map((cell, index2) => {
-                const classes = [];
-                if (cell.value < 0) classes.push("negative");
-                classes.push(cell.status);
-
-                return(
-                  <td key={index2} className={classes.join(" ")}>{cell.value}</td>
-                )
-              })}
-
-              <td className="empty-cell"></td>
-
-              <td className={totalClasses.join(' ')} >{row.total.value}</td>
-              <td className="nowrap bold">{row.portfolio}</td>
-              <td className="nowrap bold">{row.trade}</td>
-
-            </tr>
-          );
-        })}
-
+        {chunks}
       </tbody>
     );
 

@@ -8,7 +8,7 @@ class App extends Component {
   state = {
 
     multisleeve: {
-      portfolios: ['10sleeves', 'nimulti', '30sleeves', '50sleeves', '70sleeves', '100sleeves'], // portfolios drop-down values
+      portfolios: ['10sleeves', 'nimulti', '30sleeves', '50sleeves'], //, '70sleeves', '100sleeves'], // portfolios drop-down values
       portfolio: 'nimulti', // portfolios drop-down currently selected value
       countries: ['East', 'West'], // countries drop-down values
       country: 'West' // countries drop-down currently selected value
@@ -36,7 +36,9 @@ class App extends Component {
 
     },
 
-    renderTable: false
+    shouldTableWrapperUpdate: false,
+    filteredRowsCount: 0,
+    filteredRowsRenderedCount: 0
   }
 
   data = {
@@ -61,7 +63,6 @@ class App extends Component {
 */
 
   _tableWidth () {
-    console.log("_tableWidth this.data.sleeves.length", this.data.sleeves.length);
     return (450 + this.data.sleeves.length * 31) + "px";
   }
 
@@ -69,20 +70,24 @@ class App extends Component {
     const m = {...this.state.multisleeve};
     m.portfolio = event.target.value;
     this.data = G.getData(m.portfolio, {...this.state.filters});
-    this.setState({multisleeve: m});
+    this._updateState({multisleeve: m, shouldTableWrapperUpdate:true});
   }
 
   countryChangeHandler = event => {
     const m = {...this.state.multisleeve};
     m.country = event.target.value;
-    this.setState({multisleeve: m});
+    this.setState({multisleeve: m, shouldTableWrapperUpdate:true});
   }
 
   filterToggleHandler = v => {
     const f = {...this.state.filters};
     f[v] = !f[v];
     this._reconcileFilterChecks(f, v);
-    this.setState({filters: f});
+    this.setState({filters: f, shouldTableWrapperUpdate:true});
+  }
+
+  filteredRowsCountHandler = (v1, v2) => {
+    this.setState({filteredRowsRenderedCount: v1, filteredRowsCount: v2, shouldTableWrapperUpdate:false});
   }
 
   _reconcileFilterChecks(f, v) {
@@ -103,6 +108,50 @@ class App extends Component {
     }
   }
 
+  _computeRowCounts(rows) {
+
+    const ret = {
+      allCount: 0,
+      aggregatedCount: 0,
+      readyCount: 0,
+      progressCount: 0,
+      rejectedCount: 0
+    }
+
+
+    rows.forEach(row => {
+      ret.allCount++;
+
+      if (row.total.status === 'aggregated') {
+        ret.aggregatedCount++;
+      } else if (row.total.status === 'approved') {
+        ret.readyCount++;
+      } else if (row.total.status === 'in-progress') {
+        ret.progressCount++;
+      } else if (row.total.status === 'reject') {
+        ret.rejectedCount++;
+      }
+    })
+
+    return ret;
+
+  }
+
+  _setCounts(newState, cnt) {
+    newState.filters.allCount = cnt.allCount;
+    newState.filters.aggregatedCount = cnt.aggregatedCount;
+    newState.filters.readyCount = cnt.readyCount;
+    newState.filters.progressCount = cnt.progressCount;
+    newState.filters.rejectedCount = cnt.rejectedCount;
+  }
+
+  _updateState(o) {
+    const cnt = this._computeRowCounts(this.data.rows);
+    const newState = {...this.state, ...o}
+    this._setCounts(newState, cnt);
+    this.setState(newState);
+  }
+
   resetFiltersHandler = () => {
 
     const filters = {...this.state.filters};
@@ -116,10 +165,16 @@ class App extends Component {
     filters.progress = false;
     filters.rejected = false;
 
-    this.setState({filters: filters});
+    this.setState({filters: filters, shouldTableWrapperUpdate:true});
   }
 
-/*
+  securityChangeHandler = s => {
+    const filters = {...this.state.filters};
+    filters.security = s;
+
+    this.setState({filters: filters, shouldTableWrapperUpdate:true});
+  }
+
   sleeveToggleHandler = s => {
 
     const filters = {...this.state.filters};
@@ -131,25 +186,13 @@ class App extends Component {
       filters.selectedSleeves.splice(ind, 1);
     }
 
-    this.setState({filters: filters, refreshTable:false});
-    this.refreshTableWithDelay(100);
+    this.setState({filters: filters, shouldTableWrapperUpdate:true});
 
   }
-
-  securityChangeHandler = s => {
-    const filters = {...this.state.filters};
-    filters.security = s;
-
-    this.setState({filters: filters, refreshTable:false});
-    this.refreshTableWithDelay(800);
-  }
-*/
 
   componentDidMount() {
-    setTimeout(() => {
-        this.data = G.getData('nimulti', {...this.state.filters});
-        this.setState({...this.state, renderTable: true});
-    }, 100);
+    this.data = G.getData('nimulti', {...this.state.filters});
+    this._updateState({shouldTableWrapperUpdate: true});
   }
 
   render() {
@@ -161,6 +204,12 @@ class App extends Component {
           countryChange={this.countryChangeHandler}
           filterToggle={this.filterToggleHandler}
           resetFilters={this.resetFiltersHandler}
+          securityChange={this.securityChangeHandler}
+          sleeveClick={this.sleeveToggleHandler}
+
+          data={this.data}
+
+          setFilteredRowsCount={this.filteredRowsCountHandler}
         />
       </div>
     );
