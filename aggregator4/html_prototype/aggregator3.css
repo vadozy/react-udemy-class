@@ -1,0 +1,400 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  font-family: "Open Sans", Calibri, Arial, sans-serif;
+  font-size: 0.75em;
+}
+
+.app .app-title {
+  background-color: #E9EDF5;
+  height: 20px;
+  text-align: left;
+  padding: 2px 0 1px 8px;
+  border-bottom: 1px solid #A8A8A8;
+  border-top: 1px solid #D8D8D8;
+  font-size: 0.75em;
+  width: 1200px;
+}
+
+.app .app-title h2 {
+  margin: 0px;
+}
+
+.app .layout {
+  display: flex;
+}
+
+.app .sidebar {
+  background-color: #F6F6F6;
+  border-right: 1px solid #E8E8E8;
+  width: 220px;
+  height: 100%;
+  padding-left: 10px;
+  overflow-y: auto; /* makes it vertically scrollable if necessary */
+  height: 100vh; /* makes this dic the height of the screen */
+}
+
+.app .sidebar h4 {
+  margin: 5px 0;
+  font-weight: 400;
+  padding-bottom: 4px;
+  color: #565656;
+  border-bottom: 1px solid #D8D8D8;
+}
+
+.app .main-area {
+  flex: 1;
+  overflow: auto; /* makes it x and y scrollable if necessary */
+  height: 100vh; /* makes this div the height of the screen */
+}
+
+.app .table-wrapper {
+  padding-left: 5px;
+  position: relative;
+  top: -10px; /* Moving uid-filter down does not free up the space, so we move this container up a bit */
+}
+
+.app .uid-filter {
+  position: relative;
+  display: inline-block;
+  left: 10px;
+  top: 55px;
+}
+
+.app .sidebar-section {
+  margin: 10px 5px;
+  padding-bottom: 10px;
+  padding-top: 3px;
+}
+
+.app .sidebar-element-container {
+  display: flex;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.app .sidebar-element-container input {
+  width: 90px; 
+}
+
+.app .sidebar-element-1 {
+  flex: 1;
+  margin-right: 3px;
+  text-align: right;
+  font-size: 0.9em;
+  padding-top: 1px;
+}
+
+.app .sidebar-element-2 {
+  flex: 1;
+}
+
+.app .sidebar-element-2 select {
+  width: 100px;
+}
+
+.app .color-filter-element-1 {
+  flex: 3;
+  margin-right: 3px;
+  text-align: left;
+}
+
+.app .color-filter-element-2 {
+  text-align: right;
+  padding-right: 20px;
+  flex: 1;
+}
+
+.app .color-filter {
+  display: inline-block;
+}
+
+.app .color-filter > div {
+  margin: 1px;
+  padding: 1px 4px;
+  width: 180px;
+}
+
+.app .color-filter > div:hover, .app .color-filter > div.active  {
+  cursor: pointer;
+  font-weight: bold;
+
+  background-image: url('checkmark.png');
+  background-repeat: no-repeat;
+  background-position: right 5px top 50%; 
+  background-size: 10px 10px;
+}
+
+.app .aggregated {
+  background-color: #77DD77;
+}
+
+.app .approved {
+  background-color: #AAFFAA;
+}
+
+.app .in-progress {
+  background-color: #FFFF99;
+}
+
+.app .reject {
+  background-color: #FFDDEE;
+}
+
+.app .bold {
+  font-weight: bold;
+}
+
+.app .padding-left-10 {
+  padding-left: 10px;
+}
+
+.app .align-center {
+  text-align: center;
+  padding-right: 20px;
+}
+
+.app .legend-list {
+  padding-left: 10px;
+  text-align: justify;
+  padding-right: 5px;
+  font-size: 0.9em;
+}
+
+.app .legend-list .item {
+  margin-bottom: 3px;
+}
+
+.app button {
+    background-color: #EAEAEA;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid #CACACA;
+    box-shadow: 1px 1px 1px #CACACA;
+    font-family: inherit;
+    font-size: 1.1em;
+    position: relative;
+    border-radius: 3px;
+}
+
+.app button:hover, .app button.active {
+    background-color: #E2E2E2;
+    border: 1px solid #BABABA;
+}
+
+.app button:active {
+    box-shadow: none;
+    left: 1px;
+    top: 1px;
+}
+
+.agg-button {
+    color: #239923;
+    padding: 2px 30px;
+}
+
+.agg-button:hover, .agg-button:active {
+    color: #238823;
+}
+
+.app .clear-filters-button {
+    color: #666666;
+    padding: 2px 24px;
+    margin-bottom: 7px;
+    margin-top: 4px;
+}
+
+.app .clear-filters-button:hover, .app .clear-filters-button:active {
+    color: #000000;
+}
+
+.app .load-button {
+    color: #666666;
+    padding: 2px 35px;
+}
+
+.app .load-button:hover, .app .load-button:active {
+    color: #000000;
+}
+
+/* 
+ * Table styling 
+ */
+table.agg-table {
+  font-size: 10px;
+  background-color: #FFFFFF;
+  text-align: right;
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 1200px;
+}
+
+.app .security-name {
+  font-size: 0.9em;
+  text-align: left;
+}
+
+/* Some fixed columns widths */
+table.agg-table .px90 {
+  width: 90px;
+}
+
+table.agg-table .px80 {
+  width: 80px;
+}
+
+table.agg-table .p70 {
+  width: 70px;
+}
+
+table.agg-table .px60 {
+  width: 60px;
+}
+
+table.agg-table .px50 {
+  width: 50px;
+}
+
+table.agg-table .px40 {
+  width: 40px;
+}
+
+table.agg-table .px30 {
+  width: 30px;
+}
+
+table.agg-table .px20 {
+  width: 20px;
+}
+
+table.agg-table .px10 {
+  width: 10px;
+}
+
+table.agg-table .px4 {
+  width: 4px;
+}
+
+table.agg-table .nowrap {
+  white-space: nowrap;
+}
+
+table.agg-table .left {
+  text-align: left;
+}
+
+table.agg-table .sleeve-weight {
+  padding-left: 40px;
+}
+
+
+table.agg-table td {
+  border: 1px solid #D0D0D0;
+  padding: 2px;
+}
+
+table.agg-table tbody td {
+  color: #303030;
+}
+
+/*
+table.agg-table tbody tr:nth-child(even) {
+  background: #F8F8F8;
+}
+*/
+
+table.agg-table th {  
+  font-weight: bold;
+  text-align: center;
+  vertical-align: bottom;
+  padding-bottom: 5px;
+}
+
+/* 
+ * BEGIN rotate headers (90 - 30) degrees styling
+ */
+table.agg-table th.rotated {
+  font-weight: bold;
+  height: 70px; /* used in math computations below */
+  position: relative;
+  vertical-align: bottom;
+  padding: 0;
+  line-height: 0.8;
+}
+
+table.agg-table th.rotated > div {
+  background-color: #FAFAFA;
+  position: relative;
+  top: 0px;
+  left: 20px; /* (70 * tan(30) / 2 = 20) where 70 is the height on the cell and 30 is the transform angle*/
+  height: 100%;
+  -ms-transform:skew(-30deg,0deg);
+  -moz-transform:skew(-30deg,0deg);
+  -webkit-transform:skew(-30deg,0deg);
+  -o-transform:skew(-30deg,0deg);
+  transform:skew(-30deg,0deg);
+  /* overflow: hidden; */
+  border-right: 1px solid #D0D0D0;
+  border-top: 1px solid #D0D0D0;
+}
+
+/* 3rd header is the 1st slanted header */
+table.agg-table th:nth-child(5).rotated > div {
+  border-left: 1px solid #D0D0D0;
+}
+
+table.agg-table th.rotated span {
+  -ms-transform:skew(30deg,0deg) rotate(300deg);
+  -moz-transform:skew(30deg,0deg) rotate(300deg);
+  -webkit-transform:skew(30deg,0deg) rotate(300deg);
+  -o-transform:skew(30deg,0deg) rotate(300deg);
+  transform:skew(30deg,0deg) rotate(300deg);
+  position: absolute;
+  bottom: 21px; /* (40 sin(30) = 20) with an additional 1px margin */
+  left: -5px; /* Adjust empirically, though there is some math hidden there too */
+  display: inline-block;
+  /*width: 100%;*/
+  width: 46px; /* (70 / cos(30) - 40 cos (30) = 46) where 70 is the height of the cell, 40 the width of the cell and 30 the transform angle */
+  text-align: left;
+  /*white-space: nowrap;*/ /*whether to display in one line or not*/
+}
+
+table.agg-table td.empty-cell {
+  background-color: #FFFFFF;
+  border: 0px none #FFFFFF;
+  width: 4px;
+}
+
+table.agg-table td.negative {
+  color: #FF0000;
+}
+
+table.agg-table tr.top-weight-row {
+  border: 0px none;
+}
+
+table.agg-table tr.top-weight-row td {
+  border: 0px none;
+}
+
+table.agg-table tr.top-weight-row td.top-row-td-shifted {
+  padding-left: 48px; /* 70 tan(30) = 40 + 8 padding */
+  font-weight: bold;
+  text-align: left;
+}
+
+.app table.agg-table .selectable:hover, .app table.agg-table .sleeve-selected {
+  background-color: #8AFAFA;
+  color: #900000;
+  cursor: pointer;
+}
+
+.app img.reload {
+  padding-left: 10px; 
+  width: 17px; 
+  vertical-align: bottom;
+  cursor: pointer;
+}

@@ -1,0 +1,6133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="aggregator2.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+  </head>
+  <body>
+    <main class="aggregatorApp" >
+      <div class="layout">
+        <div class="sidebar">
+          <h3>PIR Sleeve Aggregator</h3>
+          <section class="sidebarSection">
+            <h4>Multi-Sleeve Portfolio</h4>
+            <div class="sidebarElementContainer">
+              <div class="sidebarElement1">
+                Portfolio
+              </div>
+              <div class="sidebarElement2">
+                <select style="width: 100px;">
+                  <option value="nimulti" selected>nimulti</option>
+                  <option value="xxx">xxx</option>
+                  <option value="yyy">yyy</option>
+                  <option value="zzz">zzz</option>
+                </select>
+              </div>
+            </div>
+            <div class="sidebarElementContainer">
+              <div class="sidebarElement1">
+                Country
+              </div>
+              <div class="sidebarElement2">
+                <select style="width: 100px;">
+                  <option value="east" selected>East</option>
+                  <option value="west">West</option>
+                  <option value="north">Some long text: North Pole and South Pole combined</option>
+                </select>
+              </div>
+            </div>
+          </section>
+          <section class="sidebarSection">
+            <h4>Filters</h4>
+            <div class="sidebarElementContainer">
+              <div class="sidebarElement1">
+                Security
+              </div>
+              <div class="sidebarElement2">
+                <input placeholder="UID or Symbol"/>
+              </div>
+            </div>
+            <div class="sidebarElementContainer">
+              <div class="sidebarElement1">
+                Approved
+              </div>
+              <div class="sidebarElement2">
+                <input type="checkbox" />
+              </div>
+            </div>
+            <div class="sidebarElementContainer">
+              <div class="sidebarElement1">
+                In Progress
+              </div>
+              <div class="sidebarElement2">
+                <input type="checkbox" />
+              </div>
+            </div>
+            <div class="sidebarElementContainer">
+              <div class="sidebarElement1">
+                Rejected
+              </div>
+              <div class="sidebarElement2">
+                <input type="checkbox" />
+              </div>
+            </div>
+            <div class="sidebarElementContainer">
+              <div class="sidebarElement1">
+                Remove Filters
+              </div>
+              <div class="sidebarElement2">
+                <input type="checkbox" />
+              </div>
+            </div>
+          </section>
+          <section class="sidebarSection">
+            <h4>Legend</h4>
+            <div class="legend">
+              <div class="approved">
+                Approved Order
+              </div>
+              <div class="in-progress">
+                In Progress
+              </div>
+              <div class="reject">
+                Review or Rejected
+              </div>
+            </div>
+          </section>
+          <section class="sidebarSection">
+            <h4>Send Aggregate Request</h4>
+            <div><button class="aggButton">Aggregate</button></div>
+          </section>
+        </div>
+        <div class="mainArea">
+          <div class="tableWrapper">
+
+<table class="aggTable">
+
+<thead>
+
+<tr class="topWeightRow">
+<td class="px40"></td>
+<td class="px30 nowrap">Fund Weight</td>
+<td class="topRowTdShifted">1.8%</td>
+<td class="topRowTdShifted">14.1%</td>
+<td class="topRowTdShifted">2.8%</td>
+<td class="topRowTdShifted">6.5%</td>
+<td class="topRowTdShifted">3.4%</td>
+<td class="topRowTdShifted">11.3%</td>
+<td class="topRowTdShifted">1.4%</td>
+<td class="topRowTdShifted">6.2%</td>
+<td class="topRowTdShifted">2.3%</td>
+<td class="topRowTdShifted">3.0%</td>
+<td class="topRowTdShifted">4.2%</td>
+<td class="topRowTdShifted">1.4%</td>
+<td class="topRowTdShifted">4.2%</td>
+<td class="topRowTdShifted">2.7%</td>
+<td class="topRowTdShifted">2.8%</td>
+<td class="topRowTdShifted">1.6%</td>
+<td class="topRowTdShifted">1.6%</td>
+<td class="topRowTdShifted">3.3%</td>
+<td class="topRowTdShifted">3.6%</td>
+<td class="topRowTdShifted">11.5%</td>
+<td class="topRowTdShifted">5.1%</td>
+<td class="topRowTdShifted">2.6%</td>
+<td class="topRowTdShifted">0.1%</td>
+<td class="topRowTdShifted">0.1%</td>
+<td class="px4"></td>
+<td class="topRowTdShifted">97.5%</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<th>UID</th>
+<th>Symbol</th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>bondmo</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>conc</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>dislo</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>eafesmmn</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable sleeveSelected"><span>eco</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>emmn_ucits</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>europefsa</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>europemn</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable sleeveSelected"><span>fsa</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>inlvol</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>japanmn</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>jfsa</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>reits</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable sleeveSelected"><span>retail</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>scahedge</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>styleeur</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>stylemo</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable sleeveSelected"><span>tidea</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>value</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>worldmn</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>wskew</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>www</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>test01</span></div></th>
+<th class="rotated"><div title="Select to find securities for this sleeve" class="selectable"><span>test02</span></div></th>
+<th></th>
+<th class="px40">Total</th>
+<th>nimulti</th>
+<th>Trade</th>
+</tr>
+
+
+
+
+</thead>
+<tbody>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+<tr>
+<td>123456</td>
+<td>AAPL</td>
+<td class="negative approved">-42.54</td>
+<td class="approved">4.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-3.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative approved">-105.26</td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold negative approved">-105.26</td>
+<td class="bold">-123</td>
+<td class="bold">-123</td>
+</tr>
+
+<tr>
+<td>345678</td>
+<td>TSLA</td>
+<td></td>
+<td></td>
+<td class="negative approved">-0.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative reject">-13.13</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="reject">40.55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold reject">22.03</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+<tr>
+<td>234567</td>
+<td>MSFT</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="in-progress">42.42</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-0.20</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-42.42</td>
+<td></td>
+<td></td>
+<td class="negative in-progress">-4.42</td>
+<td></td>
+<td class="approved">10.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="empty-cell"></td>
+<td class="bold in-progress">42.42</td>
+<td class="bold">123</td>
+<td class="bold">123</td>
+</tr>
+
+
+
+
+</tbody>
+</table>
+
+
+
+          </div>
+        </div>
+      </div>
+      
+    </main>
+  </body>
