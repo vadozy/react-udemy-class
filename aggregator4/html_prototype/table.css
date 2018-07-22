@@ -1,0 +1,270 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", Calibri, Arial, sans-serif;
+  font-size: 0.75em;
+}
+
+.main-area {
+  flex: 1;
+  height: calc(100vh - 25px); /* -25px is the height of .title (if div has borders, subtract more) */
+  overflow: auto;
+}
+
+/* 
+ * Table styling 
+ */
+
+.load-state-section {
+  margin-bottom: 8px;
+  margin-top: 5px;
+}
+
+table.agg-table {
+  font-size: 10px;
+  background-color: #FFFFFF;
+  text-align: right;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+table.agg-table td {
+  border: 1px solid #D0D0D0;
+  padding: 2px;
+}
+
+.app .security-name {
+  font-size: 0.9em;
+  text-align: left;
+}
+
+/* Table columns fixed widths */
+table.agg-table .px140 {
+  width: 140px;
+  max-width: 140px;
+  min-width: 140px;
+}
+
+table.agg-table .px110 {
+  width: 110px;
+  max-width: 110px;
+  min-width: 110px;
+}
+
+table.agg-table .px90 {
+  width: 90px;
+  max-width: 90px;
+  min-width: 90px;
+}
+
+table.agg-table .px80 {
+  width: 80px;
+  max-width: 80px;
+  min-width: 80px;
+}
+
+table.agg-table .px70 {
+  width: 70px;
+  max-width: 70px;
+  min-width: 70px;
+}
+
+table.agg-table .px60 {
+  width: 60px;
+  max-width: 60px;
+  min-width: 60px;
+}
+
+table.agg-table .px50 {
+  width: 50px;
+  max-width: 50px;
+  min-width: 50px;
+}
+
+table.agg-table .px40 {
+  width: 40px;
+  max-width: 40px;
+  min-width: 40px;
+}
+
+table.agg-table .px35 {
+  width: 35px;
+  max-width: 35px;
+  min-width: 35px;
+}
+
+table.agg-table .px30 {
+  width: 30px;
+  max-width: 30px;
+  min-width: 30px;
+}
+
+table.agg-table .px20 {
+  width: 20px;
+  max-width: 20px;
+  min-width: 20px;
+}
+
+table.agg-table .px10 {
+  width: 10px;
+  max-width: 10px;
+  min-width: 10px;
+}
+
+table.agg-table .px4 {
+  width: 4px;
+  max-width: 4px;
+  min-width: 4px;
+}
+
+table.agg-table .nowrap {
+  white-space: nowrap;
+}
+
+table.agg-table .left {
+  text-align: left;
+}
+
+table.agg-table .right {
+  text-align: right;
+}
+
+table.agg-table .center {
+  text-align: center;
+}
+
+table.agg-table .empty-cell {
+  background-color: #FFFFFF;
+  border: 0px none #FFFFFF;
+  width: 4px;
+}
+
+table.agg-table .sleeve-weight {
+  padding-right: 10px;
+  font-weight: bold;
+  background-color: #FFFFFF;
+  border: 0px none #FFFFFF;
+}
+
+table.agg-table .aggregation-status {
+  padding-right: 10px;
+  font-weight: bold;
+  background-color: #FFFFFF;
+  border: 0px none #FFFFFF;
+  font-size: 1.1em;
+}
+
+table.agg-table th {  
+  font-weight: bold;
+  text-align: center;
+  vertical-align: bottom;
+  padding-bottom: 2px;
+}
+
+/* 
+ * BEGIN rotate headers (90 - 50) degrees styling
+ */
+table.agg-table th.rotated {
+  font-weight: bold;
+  height: 60px; /* used in math computations below */
+  width: 35px; /* used in math computations below */
+  max-width: 35px; /* set it be equal to width */
+  min-width: 35px; /* set it be equal to width */
+  position: relative;
+  vertical-align: bottom;
+  padding: 0;
+  line-height: 0.8;
+}
+
+table.agg-table th.rotated > div {
+  background-color: #FAFAFA;
+  position: relative;
+  top: 0px;
+  left: 36px; /* (60 * tan(50) / 2 = 36) where 60 is the height on the cell and 50 is the transform angle*/
+  height: 100%;
+  -ms-transform:skew(-50deg,0deg);
+  -moz-transform:skew(-50deg,0deg);
+  -webkit-transform:skew(-50deg,0deg);
+  -o-transform:skew(-50deg,0deg);
+  transform:skew(-50deg,0deg);
+  /* overflow: hidden; */
+  border-right: 1px solid #D0D0D0;
+  border-top: 1px solid #D0D0D0;
+  z-index: 10; /* This makes hover over div responsive to the whole skewed div area, otherwise only lower part responds */
+}
+
+/* sorted columns (see comment to div z-index above) */
+table.agg-table th.rotated > div.sortable:hover, table.agg-table th.rotated > div.sorted {
+  color: #01255A;
+  cursor: pointer;
+  background-color: #44FFFF;
+}
+
+/* 6th header is the 1st slanted header */
+table.agg-table th:nth-child(6).rotated > div {
+  border-left: 1px solid #D0D0D0;
+}
+
+table.agg-table th.rotated span {
+  -ms-transform:skew(50deg,0deg) rotate(320deg);
+  -moz-transform:skew(50deg,0deg) rotate(320deg);
+  -webkit-transform:skew(50deg,0deg) rotate(320deg);
+  -o-transform:skew(50deg,0deg) rotate(320deg);
+  transform:skew(50deg,0deg) rotate(320deg);
+  position: absolute;
+  bottom: 27px; /* (35 sin(50) = 27) where 35 the width of the cell */
+  left: -20px; /* Adjust empirically, though there is some math hidden there too */
+  display: inline-block;
+  /*width: 100%;*/
+  width: 71px; /* (60 / cos(50) - 35 cos (50) = 71) where 60 is the height of the cell, 36 the width of the cell and 50 the transform angle */
+  text-align: left;
+  /*white-space: nowrap;*/ /*whether to display in one line or not*/
+}
+
+/* 
+ * END rotate headers (90 - 50) degrees styling
+ */
+
+ /* selected and selectable table rows */
+table.agg-table .selectable:hover, table.agg-table .selected {
+  color: #01255A;
+  cursor: pointer;
+  background-color: #44FFFF;
+}
+
+ /* End of Table styling */
+
+ /* Background colors and font weights */
+
+ .app .aggregated {
+  background-color: #55EE77;
+}
+
+.app .approved {
+  background-color: #CCFFCC;
+}
+
+.app .in-progress {
+  background-color: #FFFFAA;
+}
+
+.app .reject {
+  background-color: #FFC8DA;
+}
+
+.app .not-loaded {
+  background-color: #FF99A9;
+}
+
+.app .bold {
+  font-weight: bold;
+}
+
+.app .negative {
+  color: #990000;
+}
+

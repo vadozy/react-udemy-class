@@ -1,0 +1,253 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.aggregatorApp {
+  font-family: "Open Sans", Verdana, Geneva, sans-serif;
+  font-size: 0.75em;
+}
+
+.aggregatorApp .layout {
+  display: flex;
+}
+
+.aggregatorApp .sidebar {
+  background-color: #F2F2F2;
+  border-right: 1px solid #D8D8D8;
+  width: 220px;
+  height: 100%;
+  padding-left: 10px;
+  overflow-y: auto; /* makes it vertically scrollable if necessary */
+  height: 100vh; /* makes this dic the height of the screen */
+}
+
+.aggregatorApp .sidebar h3 {
+  border-bottom: 2px solid #D8D8D8;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-bottom: 7px;
+}
+
+.aggregatorApp .sidebar h4 {
+  margin: 5px 0;
+  padding-bottom: 4px;
+  color: #777777;
+}
+
+.aggregatorApp .mainArea {
+  padding-left: 5px;
+  flex: 1;
+  overflow: auto; /* makes it x and y scrollable if necessary */
+  height: 100vh; /* makes this dic the height of the screen */
+}
+
+.aggregatorApp .tableWrapper {
+  margin-top: 20px;
+}
+
+.aggregatorApp .sidebarSection {
+  border-bottom: 1px solid #D8D8D8;
+  margin: 10px 5px;
+  padding-bottom: 10px;
+}
+
+.aggregatorApp .sidebarElementContainer {
+  display: flex;
+  margin: 5px 0;
+  padding: 0;  
+}
+
+.aggregatorApp .sidebarElementContainer input {
+  width: 90px; 
+}
+
+.aggregatorApp .sidebarElement1 {
+  flex: 2;
+  margin-right: 3px;
+  text-align: right;
+}
+
+.aggregatorApp .sidebarElement2 {
+  flex: 3;
+}
+
+.aggregatorApp .legend {
+  display: inline-block;
+}
+
+.aggregatorApp .legend div {
+  margin: 3px;
+  padding: 2px 4px;
+}
+
+.aggregatorApp .approved {
+  background-color: #99FF99;
+}
+
+.aggregatorApp .in-progress {
+  background-color: #FFFF99;
+}
+
+.aggregatorApp .reject {
+  background-color: #FFDDEE;
+}
+
+.aggregatorApp .bold {
+  font-weight: bold;
+}
+
+.aggButton {
+    background-color: #DADADA;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid #BABABA;
+    color: #EF5502;
+    font-family: inherit;
+    font-size: 1.2em;
+    padding: 15px 30px;
+    box-shadow: 2px 2px 2px #BABABA;
+    position: relative;
+}
+
+.aggButton:hover, .aggButton:active {
+    background-color: #009999;
+    border: 1px solid #BABABA;
+    color: #FFAAAA;
+}
+
+.aggButton:active {
+    box-shadow: none;
+    left: 2px;
+    top: 2px;
+}
+
+/* 
+ * Table styling 
+ */
+table.aggTable {
+  font-size: 10px;
+  background-color: #FFFFFF;
+  text-align: right;
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 1200px;
+}
+
+/* Some fixed columns widths */
+table.aggTable .px40 {
+  width: 40px;
+}
+
+table.aggTable .px30 {
+  width: 30px;
+}
+
+table.aggTable .px4 {
+  width: 4px;
+}
+
+table.aggTable .nowrap {
+  white-space: nowrap;
+}
+
+
+table.aggTable td {
+  border: 1px solid #D0D0D0;
+  padding: 2px 4px;
+}
+
+table.aggTable tbody td {
+  color: #303030;
+}
+
+table.aggTable tbody tr:nth-child(even) {
+  background: #F2F2F2;
+}
+
+table.aggTable th {  
+  font-weight: bold;
+  text-align: center;
+  vertical-align: bottom;
+  padding-bottom: 5px;
+}
+
+/* 
+ * BEGIN rotate headers (90 - 30) degrees styling
+ */
+table.aggTable th.rotated {
+  font-weight: bold;
+  height: 70px; /* used in math computations below */
+  position: relative;
+  vertical-align: bottom;
+  padding: 0;
+  line-height: 0.8;
+}
+
+table.aggTable th.rotated > div {
+  background-color: #FAFAFA;
+  position: relative;
+  top: 0px;
+  left: 20px; /* (70 * tan(30) / 2 = 20) where 70 is the height on the cell and 30 is the transform angle*/
+  height: 100%;
+  -ms-transform:skew(-30deg,0deg);
+  -moz-transform:skew(-30deg,0deg);
+  -webkit-transform:skew(-30deg,0deg);
+  -o-transform:skew(-30deg,0deg);
+  transform:skew(-30deg,0deg);
+  /* overflow: hidden; */
+  border-right: 1px solid #D0D0D0;
+  border-top: 1px solid #D0D0D0;
+}
+
+/* 3rd header is the 1st slanted header */
+table.aggTable th:nth-child(3).rotated > div {
+  border-left: 1px solid #D0D0D0;
+}
+
+table.aggTable th.rotated span {
+  -ms-transform:skew(30deg,0deg) rotate(300deg);
+  -moz-transform:skew(30deg,0deg) rotate(300deg);
+  -webkit-transform:skew(30deg,0deg) rotate(300deg);
+  -o-transform:skew(30deg,0deg) rotate(300deg);
+  transform:skew(30deg,0deg) rotate(300deg);
+  position: absolute;
+  bottom: 21px; /* (40 sin(30) = 20) with an additional 1px margin */
+  left: -5px; /* Adjust empirically, though there is some math hidden there too */
+  display: inline-block;
+  /*width: 100%;*/
+  width: 46px; /* (70 / cos(30) - 40 cos (30) = 46) where 70 is the height of the cell, 40 the width of the cell and 30 the transform angle */
+  text-align: left;
+  /*white-space: nowrap;*/ /*whether to display in one line or not*/
+}
+
+table.aggTable td.empty-cell {
+  background-color: #FFFFFF;
+  border: 0px none #FFFFFF;
+  width: 4px;
+}
+
+table.aggTable td.negative {
+  color: #FF0000;
+}
+
+table.aggTable tr.topWeightRow {
+  border: 0px none;
+}
+
+table.aggTable tr.topWeightRow td {
+  border: 0px none;
+}
+
+table.aggTable tr.topWeightRow td.topRowTdShifted {
+  padding-left: 48px; /* 70 tan(30) = 40 + 8 padding */
+  font-weight: bold;
+}
+
+.aggregatorApp table.aggTable .selectable:hover, .aggregatorApp table.aggTable .sleeveSelected {
+  background-color: #009999;
+  color: #DDFFFF;
+  cursor: pointer;
+}
