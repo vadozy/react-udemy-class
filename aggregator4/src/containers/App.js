@@ -57,18 +57,25 @@ class App extends Component {
   }
 
   /*
-   * hashmap where uid is the key and the value is object with security properties (symbol, currency, etc.)
+   * set of row(s) selected on screen
    */
-  selectedSecurity = Object.create(null);
+  selectedSecurities        = new Set();
+  // shift selects state
+  shiftSelectedSecurityFrom = null;      // row used for Shift Selects
+  shiftSelectedSecurityTo   = null;      // row used for Shift Selects
+  shiftSelectedSecurities   = new Set(); // rows currently Shift Selected
 
   sidebarStateUpdateHandler = newSidebarState => {
+    if (this.sidebarState.security !== newSidebarState.security) {
+      this._unselectAllRows();
+    }
     this.sidebarState = {...this.sidebarState, ...newSidebarState};
     this.renderTableData();
-    //console.log(this.sidebarState);
   }
 
   loadPortfolioData = portfolio => {
-    this.clearMainAreaFilters();
+    this.clearSleeveSorting();
+    this.selectedSecurities.clear();
     console.log('Loading Portfolio ' + portfolio + ' from backend');
 
     // Next two lines bring the spinner in the main area
@@ -82,22 +89,67 @@ class App extends Component {
       this.data.rows = data.rows;
 
       this.data.statusSummary = D.computeStatusSummary(this.data.rows);
-      //console.log(this.data.statusSummary);
       console.log('Loaded Portfolio ' + portfolio + ' with ' + this.data.rows.length + ' rows');
       this.renderTableData();
     }, 1000); // VADIM -- emulates Ajax call
   }
 
-  clearMainAreaFilters = () => {
+  clearSleeveSorting = () => {
     this.data.sortedBy.index = -1;
+  }
+
+  _unselectAllRows = () => {
+
+    this.selectedSecurities.forEach(row => {
+      row.selected = false;
+      this._setRowReactComponentState(row, false)});
+
+    this.selectedSecurities.clear();
+
+    // Clear shift select state
+    this.shiftSelectedSecurityFrom = null;
+    this.shiftSelectedSecurityTo   = null;
+    this.shiftSelectedSecurities.clear();
+  }
+
+  _replaceShiftRows = rows => {
+
+    this.shiftSelectedSecurities.forEach(row => {
+      row.selected = false;
+      this.selectedSecurities.delete(row);
+      this._setRowReactComponentState(row, false)});
+
+    this.shiftSelectedSecurities.clear();
+
+    rows.forEach(row => {
+      row.selected = true;
+      this.selectedSecurities.add(row);
+      this.shiftSelectedSecurities.add(row);
+      this._setRowReactComponentState(row, true);
+    });
+  }
+
+  _findRowsBetween = (row1, row2) => {
+    const ret = [];
+    let between = false;
+
+    const allRows = this.data.rowsToRender;
+    for (let i = 0; i < allRows.length; i++) {
+      if (allRows[i] === row1 || allRows[i] === row2) {
+        ret.push(allRows[i]);
+        if (between) break;
+        between = true;
+      } else {
+        if (between) ret.push(allRows[i]);
+      }
+    }
+    return ret;
   }
 
   renderTableData = () => {
     this.data.rowsToRender = D.sortAndFilter(this.data.rows, this.data.statusSummary, this.data.sortedBy, this.sidebarState);
     this.data.totalRenderCount = this.data.rowsToRender.length;
     this.data.renderedCount = 0;
-    this.selectedSecurity = Object.create(null);
-    //console.log("this.setState({renderTableDataOnly: true})");
     this.setState({renderTableDataOnly: true});
   }
 
@@ -112,12 +164,17 @@ class App extends Component {
   }
 
   aggStatusSummaryClickedHandler = (status, i, isTotal) => {
+
+    // Next single line, if commeneted out, will make the Aggregation Status Summary multi-select
+    this.data.statusSummary.clearAllSelections();
+
     if (isTotal) {
       this.data.statusSummary[status].totalSelected = !this.data.statusSummary[status].totalSelected;
     } else {
       this.data.statusSummary[status].countsPerSleeveSelected[i] = !this.data.statusSummary[status].countsPerSleeveSelected[i];
     }
     D.reconcileStatusSummarySelections(this.data.statusSummary, status, i, isTotal);
+    this._unselectAllRows();
     this.renderTableData();
   }
 
@@ -127,19 +184,55 @@ class App extends Component {
   }
 
   resetFiltersHandler = () => {
-    this.clearMainAreaFilters();
+    this.clearSleeveSorting();
     this.data.statusSummary.clearAllSelections();
+    this._unselectAllRows();
     this.renderTableData();
   }
 
-  rowClickGlobalHandler = (isSelected, security) => {
-    if (isSelected) {
-      this.selectedSecurity[security.uid] = security; // add to the map
-    } else {
-      delete this.selectedSecurity[security.uid]; // remove from the map
-    }
-    console.log(this.selectedSecurity);
+  selectAllRowsHandler = () => {
+    this.data.rowsToRender.forEach(row => {
+      row.selected = true;
+      this.selectedSecurities.add(row);
+      this._setRowReactComponentState(row, true);
+    });
     this.setState({renderTableDataOnly: false}); // to cause the sidebar to update the legend
+  }
+
+  _setRowReactComponentState = (row, selected) => {
+      if (row.reactComponent) {
+        row.reactComponent.setState({selected: selected});
+      }
+  }
+
+  rowClickGlobalHandler = (row, ctrlKey, shiftKey, altKey, metaKey) => {
+
+    if (shiftKey) {
+      this.shiftSelectedSecurityTo = row;
+      const rows = this._findRowsBetween(row, this.shiftSelectedSecurityFrom);
+      this._replaceShiftRows(rows);
+    } else {
+      if (!ctrlKey && !metaKey) {
+        this._unselectAllRows();
+        this._setRowState(row, true);
+      } else if (ctrlKey || metaKey) {
+        this._setRowState(row, !row.selected);
+      }
+      this.shiftSelectedSecurityFrom = row;
+      this.shiftSelectedSecurityTo = null;
+      this.shiftSelectedSecurities.clear();
+    }
+    this.setState({renderTableDataOnly: false}); // to cause the sidebar to update the legend
+  }
+
+  _setRowState = (row, selected) => {
+    row.selected = selected;
+    this._setRowReactComponentState(row, selected);
+    if (selected) {
+      this.selectedSecurities.add(row); // add to the set
+    } else {
+      delete this.selectedSecurities.delete(row); // remove from the set
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -162,7 +255,7 @@ class App extends Component {
             resetFilters={this.resetFiltersHandler} 
             renderedCount={this.data.renderedCount}
             totalRenderCount={this.data.totalRenderCount}
-            selectedSecurity={this.selectedSecurity}  />
+            selectedSecurities={this.selectedSecurities}  />
 
           {this.data.sleeves.length === 0 ? <div className="loader">Loading...</div> : 
             <MainArea 
@@ -173,6 +266,7 @@ class App extends Component {
               aggStatusSummaryClicked={this.aggStatusSummaryClickedHandler}
               setRenderedRowsCount={this.setRenderedRowsCountHandler}
               securityClick={this.rowClickGlobalHandler}
+              selectAllRows={this.selectAllRowsHandler}
           />}
 
         </div>

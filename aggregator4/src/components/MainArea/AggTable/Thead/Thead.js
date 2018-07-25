@@ -15,7 +15,7 @@ const thead = props => {
         <th colSpan={props.data.sleeves.length}>{C.SIDEBAR_SLEEVE_TITLE[props.sidebarState.dataGridContent]}</th>
         <th className="empty-cell"></th>
         <th className="nowrap px50">Total</th>
-        <th className="px50">{props.sidebarState.portfolio}</th>
+        <th className="px50">{props.sidebarState.portfolio.pgroup}</th>
         <th className="nowrap px50">Trade</th>
       </tr>
 

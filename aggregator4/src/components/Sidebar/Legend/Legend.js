@@ -2,16 +2,21 @@ import React from 'react';
 
 const legend = props => {
 
-  let ss = null;
-  if (Object.keys(props.selectedSecurity).length > 0) {
-    ss = (
+  const selectedRows = [];
+
+  props.selectedSecurities.forEach(row => selectedRows.push(row));
+
+  let ss_jsx = null;
+
+  if (selectedRows.length > 0) {
+    ss_jsx = (
         <li className="item">
           Selected Securities
-          {Object.keys(props.selectedSecurity).map(el => <div key={props.selectedSecurity[el].uid} >
-              <span style={{margin: "5px"}}>{props.selectedSecurity[el].uid}</span>
-              <span style={{margin: "5px"}}>{props.selectedSecurity[el].currency}</span>
-              <span style={{margin: "5px"}}>{props.selectedSecurity[el].symbol}</span>
-            </div>)}
+          {selectedRows.map(row => { return <div key={row.uid} >
+              <span style={{margin: "5px"}}>{row.uid}</span>
+              <span style={{margin: "5px"}}>{row.currency}</span>
+              <span style={{margin: "5px"}}>{row.symbol}</span>
+            </div>;})}
         </li>
     );
   }
@@ -33,7 +38,7 @@ const legend = props => {
         <li className="item">
           Rows {props.renderedCount} / {props.totalRenderCount}
         </li>
-        {ss}
+        {ss_jsx}
       </ul>
 
     </section>

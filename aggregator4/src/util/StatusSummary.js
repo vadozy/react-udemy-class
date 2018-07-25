@@ -8,6 +8,8 @@ class StatusSummary {
         this[C.AGG_STATUS_PROGRESS]   = new StatusSummaryRow(len);
         this[C.AGG_STATUS_REJECTED]   = new StatusSummaryRow(len);
         this[C.AGG_STATUS_NOT_LOADED] = new StatusSummaryRow(len);
+
+        this[C.AGG_STATUS_READY].totalSelected = true; // When the application starts this is the default selection
     }
 
     clearAllSelections () {

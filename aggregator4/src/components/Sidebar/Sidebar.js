@@ -10,7 +10,7 @@ class Sidebar extends Component {
 
   state = {
     portfolios: [], // portfolios drop-down values (will come from server)
-    portfolio: '', // currently selected value in the portfolios drop-down (will come from server)
+    portfolio: {}, // currently selected value in the portfolios drop-down (will come from server)
 
     dataGridContent: C.SIDEBAR_SLEEVE_EOD_WEIGHT,
     security: ""
@@ -34,17 +34,21 @@ class Sidebar extends Component {
   }
 
   loadPortfolios = () => {
-    const ps = ['10sleeves', 'nimulti-east', '30sleeves', '50sleeves'];
+    const ps = [
+      {portfolio: '10sleeves', pgroup: '10SLEEVES'},
+      {portfolio: 'nimulti-east', pgroup: 'NIMULTI'},
+      {portfolio: '30sleeves', pgroup: '30SLEEVES'},
+      {portfolio: '50sleeves', pgroup: '50SLEEVES'}];
     console.log("Loaded " + ps.length + " Collapsed Sim Targets from server!");
     this.setState({
       portfolios: ps,
-      portfolio: 'nimulti-east'
+      portfolio: {portfolio: 'nimulti-east', pgroup: 'NIMULTI'}
     });
     this.props.loadPortfolioData('nimulti-east');
   }
 
   portfolioChangeHandler = event => {
-    this.setState({portfolio: event.target.value});
+    this.setState({portfolio: this.state.portfolios.filter(el => el.portfolio === event.target.value)[0]});
     this.props.loadPortfolioData(event.target.value);
   }
 
@@ -89,7 +93,7 @@ class Sidebar extends Component {
         <Legend
           renderedCount={this.props.renderedCount}
           totalRenderCount={this.props.totalRenderCount} 
-          selectedSecurity={this.props.selectedSecurity} />
+          selectedSecurities={this.props.selectedSecurities} />
 
       </div>
 

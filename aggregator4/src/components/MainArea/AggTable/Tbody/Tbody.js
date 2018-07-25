@@ -101,11 +101,7 @@ class Tbody extends Component {
 
     this.currentChunk++;
 
-    return(
-        <tbody>
-          {chunks}
-        </tbody>
-    );
+    return chunks;
   }
 }
 

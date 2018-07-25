@@ -129,7 +129,7 @@ class MockDataGenerator {
     const maxInd = statuses.indexOf(status) + 1;
     let ind = Math.floor(Math.random() * maxInd);
 
-    if (status !== C.AGG_STATUS_AGGREGATED && ind === 0) ind++;
+    if (status !== C.AGG_STATUS_AGGREGATED && ind === 0) ind += (1 + Math.floor(Math.random() * 4));
 
     return statuses[ind];
   }
@@ -153,11 +153,14 @@ class MockDataGenerator {
       if (totalStatus === "") continue;
 
       row.total = {
-        value: row.rowData.map(el => Number(el[C.SIDEBAR_SLEEVE_EOD_WEIGHT])).reduce((total, el) => total + el),
+        value: Math.floor(row.rowData.map(el => Number(el[C.SIDEBAR_SLEEVE_EOD_WEIGHT])).reduce((total, el, idx) => total + el * this.data.weights[idx] / 100)),
         status: totalStatus
       };
-      row.portfolio = "000"
-      row.trade = "000"
+      row.trade = Math.floor(row.rowData.map(el => Number(el[C.SIDEBAR_SLEEVE_TRADE])).reduce((total, el, idx) => total + el * this.data.weights[idx] / 100));
+      row.portfolio = row.total.value - row.trade;
+
+      row.selected = false; // not a server data, used in browser only
+      row.reactComponent = null; // when the Tr react component is rendered it attaches itself here
 
       ret.push(row);
     }

@@ -4,6 +4,21 @@ import Tbody from './Tbody/Tbody';
 
 class AggTable extends Component {
 
+  keydownHandler = event => {
+    if(event.keyCode === 65) {
+      // A/a key was pressed
+      this.props.selectAllRows();
+    }
+  }
+
+  componentDidMount() {
+    document.addEventListener("keydown", this.keydownHandler, false);
+  }
+
+  componentWillUnmount(){
+    document.removeEventListener("keydown", this.keydownHandler, false);
+  }
+
   shouldComponentUpdate(nextProps, nextState) {
     return nextProps.renderTableDataOnly;
   }
@@ -14,7 +29,7 @@ class AggTable extends Component {
 
     return (
 
-      <table className="agg-table">
+      <table className="agg-table data-table">
 
         <Thead {...this.props} />
 
