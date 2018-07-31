@@ -34,12 +34,17 @@ class Tr extends Component {
     const totalClasses = ['nowrap', 'bold', C.AGG_STATUS_CSS_COLOR[row.total.status]];
     if (row.total.value < 0) totalClasses.push("negative");
     
-    const rowClasses = ['selectable'];
 
+    const rowClasses = [];
+    let rowClickHandler = null;
+    /*
+    rowClasses.push('selectable');
     if (this.state.selected) rowClasses.push('selected');
+    rowClickHandler = this.rowClickHandler;
+    */
 
     return (
-      <tr className={rowClasses.join(' ')} onClick={this.rowClickHandler} >
+      <tr className={rowClasses.join(' ')} onClick={rowClickHandler} >
         <td className="px40 nowrap">{row.uid}</td>
         <td className="px30 nowrap">{row.currency}</td>
         <td className="px50 nowrap left">{row.symbol}</td>
@@ -49,6 +54,7 @@ class Tr extends Component {
         {row.rowData.map((cell, index2) => {
           const classes = ["px35"];
           if (cell[this.props.sidebarState.dataGridContent] < 0) classes.push("negative");
+          if (this.props.disabledSleeves[index2]) classes.push("disabled-sleeve");
           classes.push(C.AGG_STATUS_CSS_COLOR[cell.status]);
 
           return(

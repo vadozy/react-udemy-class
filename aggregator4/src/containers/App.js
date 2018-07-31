@@ -32,8 +32,7 @@ class App extends Component {
   /* This is the main data received from the server, and StatusSummary data is derived from it */
   data = {
     /* Data from the server */
-    sleeves: [],
-    weights: [],
+    sleeves: [], // array of objects like {name: 'sleeve1', weight: 0.2, status: 'NOT AVAILABLE'}
     rows: [],
 
    /*
@@ -85,7 +84,6 @@ class App extends Component {
     setTimeout(() => {
       const data = G.getData(portfolio);
       this.data.sleeves = data.sleeves;
-      this.data.weights = data.weights;
       this.data.rows = data.rows;
 
       this.data.statusSummary = D.computeStatusSummary(this.data.rows);

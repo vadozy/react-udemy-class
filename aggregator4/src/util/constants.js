@@ -19,6 +19,8 @@ class Constants {
     AGG_STATUS_REJECTED = 'Agg_Status_Rejected';
     AGG_STATUS_NOT_LOADED = 'Agg_Status_Not_Loaded';
 
+    SLEEVE_DISABLED = 'NOT AVAILABLE'; // when sleeve is not part of the given collapsed portfolio
+
     SIDEBAR_SLEEVE_TITLE = {}; // mapping from Sidebar Data Grid Content received from server to HTML Table Title
 
     AGG_STATUS_CSS_COLOR = {}; // mapping from status received from server to CSS color

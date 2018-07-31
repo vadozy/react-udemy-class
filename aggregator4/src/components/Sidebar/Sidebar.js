@@ -37,6 +37,7 @@ class Sidebar extends Component {
     const ps = [
       {portfolio: '10sleeves', pgroup: '10SLEEVES'},
       {portfolio: 'nimulti-east', pgroup: 'NIMULTI'},
+      {portfolio: 'nimulti-west', pgroup: 'NIMULTI'},
       {portfolio: '30sleeves', pgroup: '30SLEEVES'},
       {portfolio: '50sleeves', pgroup: '50SLEEVES'}];
     console.log("Loaded " + ps.length + " Collapsed Sim Targets from server!");

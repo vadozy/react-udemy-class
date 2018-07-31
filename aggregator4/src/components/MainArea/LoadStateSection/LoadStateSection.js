@@ -6,6 +6,9 @@ import LoadStateSectionRow from './LoadStateSectionRow/LoadStateSectionRow';
 class LoadStateSection extends Component {
 
   render() {
+
+    const disabled = this.props.data.sleeves.map(s => s.status === C.SLEEVE_DISABLED);
+
     return (
 
     <section className="load-state-section">
@@ -21,9 +24,12 @@ class LoadStateSection extends Component {
             <th className="nowrap px90"></th>
 
             {this.props.data.sleeves.map((s, index) => {
-              const sleeveSorted = this.props.data.sortedBy.index === index ? "sorted" : ""; 
+              const classes = ['sortable'];
+              if (this.props.data.sortedBy.index === index) classes.push("sorted"); 
+              if (s.status === C.SLEEVE_DISABLED) classes.push("disabled-sleeve");
+              const clickHandler = s.status === C.SLEEVE_DISABLED ? null : () => this.props.sleeveClicked(index);
               return (
-                <th key={index} className="rotated"><div title="Click to sort" onClick={() => this.props.sleeveClicked(index)} className={['sortable', sleeveSorted].join(' ')}><span>{s}</span></div></th>
+                <th key={index} className="rotated"><div title="Click to sort" onClick={clickHandler} className={classes.join(' ')}><span>{s.name}</span></div></th>
               );
             })}
 
@@ -39,12 +45,14 @@ class LoadStateSection extends Component {
             <td colSpan="3" className="px120 empty-cell"></td>
             <td colSpan="2" className="px140 sleeve-weight">Sleeve Weight (%)</td>
 
-            {this.props.data.weights.map((v, index) => (
-              <td key={index} className="bold">{v}</td>
-            ))}
+            {this.props.data.sleeves.map((s, index) => {
+              const classes = ['bold'];
+              if (s.status === C.SLEEVE_DISABLED) classes.push("disabled-sleeve"); 
+              return <td key={index} className={classes.join(' ')}>{s.weight}</td>
+            })}
 
             <td className="empty-cell"></td>
-            <td className="px50 nowrap bold">{this.props.data.weights.reduce((total, n) => total + n, 1).toFixed(1)}%</td>
+            <td className="px50 nowrap bold">{this.props.data.sleeves.map(s => s.weight).reduce((total, n) => total + n, 1).toFixed(1)}%</td>
           </tr>
 
           <tr>
@@ -57,6 +65,7 @@ class LoadStateSection extends Component {
             firstRow={true}
             title="All"
             row={this.props.data.statusSummary[C.AGG_STATUS_ALL]}
+            disabled={disabled}
             status={C.AGG_STATUS_ALL}
             aggStatusSummaryClicked={this.props.aggStatusSummaryClicked}
           />
@@ -65,6 +74,7 @@ class LoadStateSection extends Component {
             firstRow={false}
             title="Aggregated"
             row={this.props.data.statusSummary[C.AGG_STATUS_AGGREGATED]}
+            disabled={disabled}
             status={C.AGG_STATUS_AGGREGATED}
             aggStatusSummaryClicked={this.props.aggStatusSummaryClicked}
           />
@@ -73,6 +83,7 @@ class LoadStateSection extends Component {
             firstRow={false}
             title="Ready for Aggregation"
             row={this.props.data.statusSummary[C.AGG_STATUS_READY]}
+            disabled={disabled}
             status={C.AGG_STATUS_READY}
             aggStatusSummaryClicked={this.props.aggStatusSummaryClicked}
           />
@@ -81,6 +92,7 @@ class LoadStateSection extends Component {
             firstRow={false}
             title="In Progress"
             row={this.props.data.statusSummary[C.AGG_STATUS_PROGRESS]}
+            disabled={disabled}
             status={C.AGG_STATUS_PROGRESS}
             aggStatusSummaryClicked={this.props.aggStatusSummaryClicked}
           />
@@ -89,6 +101,7 @@ class LoadStateSection extends Component {
             firstRow={false}
             title="Rejected"
             row={this.props.data.statusSummary[C.AGG_STATUS_REJECTED]}
+            disabled={disabled}
             status={C.AGG_STATUS_REJECTED}
             aggStatusSummaryClicked={this.props.aggStatusSummaryClicked}
           />
@@ -97,6 +110,7 @@ class LoadStateSection extends Component {
             firstRow={false}
             title="Not Loaded"
             row={this.props.data.statusSummary[C.AGG_STATUS_NOT_LOADED]}
+            disabled={disabled}
             status={C.AGG_STATUS_NOT_LOADED}
             aggStatusSummaryClicked={this.props.aggStatusSummaryClicked}
           />

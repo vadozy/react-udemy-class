@@ -405,6 +405,15 @@ table.agg-table th.rotated > div.sortable:hover, table.agg-table th.rotated > di
   background-color: #44FFFF;
 }
 
+/* disabled columns (when sleeve is not part of the given collapsed portfolio) */
+table.agg-table th.rotated > div.disabled-sleeve:hover, 
+table.agg-table th.rotated > div.disabled-sleeve,
+table.agg-table td.disabled-sleeve {
+  color: #aaa !important;
+  cursor: default !important;
+  background-color: #ddd !important;
+}
+
 /* 6th header is the 1st slanted header */
 table.agg-table th:nth-child(6).rotated > div {
   border-left: 1px solid #D0D0D0;
