@@ -24,11 +24,18 @@ const personAddedHandler = (state) => {
         age: Math.floor( Math.random() * 40 )
     }
 
-    return { persons: state.persons.concat(newPerson)};
+    return {
+    	...state,
+    	persons: state.persons.concat(newPerson)
+    };
+
 };
 
 const personDeletedHandler = (state, personId) => {
-	return { persons: state.persons.filter(person => person.id !== personId)};
+	return {
+		...state,
+		persons: state.persons.filter(person => person.id !== personId)
+	};
 };
 
 export default reducer;
