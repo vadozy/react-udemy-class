@@ -8,7 +8,7 @@ const reducer = (state = initialState, action) => {
 
 	switch (action.type) {
 		case ACTION_TYPE.ADD:
-			return personAddedHandler(state);
+			return personAddedHandler(state, action.name, action.age);
 		case ACTION_TYPE.REMOVE:
 			return personDeletedHandler(state, action.personId);
 		default:
@@ -17,11 +17,12 @@ const reducer = (state = initialState, action) => {
 
 };
 
-const personAddedHandler = (state) => {
+const personAddedHandler = (state, name = "Max", age = 0) => {
+	console.log("personAddedHandler", name, age);
     const newPerson = {
         id: Math.random(), // not really unique but good enough here!
-        name: 'Max',
-        age: Math.floor( Math.random() * 40 )
+        name: name,
+        age: age
     }
 
     return {
