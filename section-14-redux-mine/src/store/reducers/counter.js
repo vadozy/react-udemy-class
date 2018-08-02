@@ -1,44 +1,32 @@
-const initialState = {
-	counter: 0,
-	results: []
-};
+import * as ACTION_TYPE from '../actions';
 
-let GLOBAL_RESULT_ID = 0;
+const initialState = {
+	counter: 0
+};
 
 const reducer = (state = initialState, action) => {
 
 	switch (action.type) {
-		case 'INCREMENT':
+		case ACTION_TYPE.INCREMENT:
 			return {
 				...state,
 				counter: state.counter + 1
 			};
-		case 'DECREMENT':
+		case ACTION_TYPE.DECREMENT:
 			return {
 				...state,
 				counter: state.counter - 1
 			};
-		case 'ADD':
+		case ACTION_TYPE.ADD:
 			return {
 				...state,
 				counter: state.counter + action.value
 			};
-		case 'SUBTRACT':
+		case ACTION_TYPE.SUBTRACT:
 			return {
 				...state,
 				counter: state.counter - action.value
 			};
-		case 'STORE_RESULT':
-			return {
-				...state,
-				results: state.results.concat({id: ++GLOBAL_RESULT_ID, value: state.counter})
-			}
-		case 'DELETE_RESULT':
-			const updatedArray = state.results.filter(result => result.id !== action.resultId);
-			return {
-				...state,
-				results: updatedArray
-			}
 		default:
 			return state;
 	}
