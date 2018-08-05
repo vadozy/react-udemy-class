@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { connect } from 'react-redux';
+
 import Button from '../../../components/UI/Button/Button';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 import classes from './ContactData.css';
@@ -103,8 +105,8 @@ class ContactData extends Component {
 			formData[formElementIdentifier] = this.state.orderForm[formElementIdentifier].value;
 		}
 		const order = {
-			ingredients: this.props.ingredients,
-			price: this.props.totalPrice, // should be computed on the server, where products are stored
+			ingredients: this.props.ings,
+			price: this.props.price, // should be computed on the server, where products are stored
 			orderData: formData
 		};
 		axios.post('/orders.json', order) // .json is the firebase requirement
@@ -188,4 +190,11 @@ class ContactData extends Component {
 	}
 }
 
-export default ContactData;
+const mapStateToProps = state => {
+	return {
+		ings: state.ingredients,
+		price: state.totalPrice
+	};
+};
+
+export default connect(mapStateToProps)(ContactData);
