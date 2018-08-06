@@ -34,12 +34,16 @@ const loadStateSectionRow = props => {
 
       {props.row.countsPerSleeve.map((v, index) => {
 
-        const selected = props.row.countsPerSleeveSelected[index] ? "selected" : "";
+        const classes = ['selectable'];
+        if (props.row.countsPerSleeveSelected[index]) classes.push("selected");
+        if (props.disabled[index]) classes.push("disabled-sleeve");
+
+        const clickHandler = props.disabled[index] ? null : () => props.aggStatusSummaryClicked(props.status, index);
 
         return (<td 
           key={index}
-          className={"selectable " + selected}
-          onClick={() => props.aggStatusSummaryClicked(props.status, index)} >{v}</td>);
+          className={classes.join(' ')}
+          onClick={clickHandler} >{v}</td>);
 
       })}
 

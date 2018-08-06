@@ -9,13 +9,14 @@ class TbodyChunk extends Component {
 
   render() {
 
-    return this.props.rows.map((row, index) => (
-          <Tr 
-            key={row.uid}
-            row={row}
-            securityClick={this.props.securityClick}
-            sidebarState={this.props.sidebarState} />
-    ));
+    return <tbody> 
+        {this.props.rows.map((row, index) => (<Tr 
+          key={row.uid}
+          row={row}
+          disabledSleeves={this.props.disabledSleeves}
+          securityClick={this.props.securityClick}
+          sidebarState={this.props.sidebarState} /> ))}
+      </tbody>;
 
   }
 

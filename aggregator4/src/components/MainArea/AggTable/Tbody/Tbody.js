@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TbodyChunk from './TbodyChunk';
+import C from '../../../../util/constants';
 
 const CHUNK_DELAY_MS = 800; // milliseconds between chunk renders
 const CHUNK_SIZE     = 100; // number of rows in one chunk
@@ -86,11 +87,13 @@ class Tbody extends Component {
 
   render() {
 
+    const disabledSleeves = this.props.data.sleeves.map(s => s.status === C.SLEEVE_DISABLED);
     const chunks = [];
     for (let i = 0; i <= this.currentChunk; i++) {
       chunks.push(<TbodyChunk
         key={i + this.globalCounter}
         rows={this.chunks[i]}
+        disabledSleeves={disabledSleeves}
         securityClick={this.props.securityClick}
         shouldUpdate={i === this.currentChunk}
         sidebarState={this.props.sidebarState} />);
@@ -101,11 +104,7 @@ class Tbody extends Component {
 
     this.currentChunk++;
 
-    return(
-        <tbody>
-          {chunks}
-        </tbody>
-    );
+    return chunks;
   }
 }
 

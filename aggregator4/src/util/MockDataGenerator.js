@@ -8,23 +8,26 @@ class MockDataGenerator {
   SLEEVES_POOL = ["bondmo", "conc", "dislo", "eafesmmn", "eco", "emmn_ucits", "europefsa", "europemn", "fsa", "inlvol", "japanmn", "jfsa", "reits", "retail", "scahedge", "styleeur", "stylemo", "tidea", "value", "worldmn", "wskew", "www"];
 
   data = {
-    sleeves: [],
-    weights: [],
+    sleeves: [], // array of objects like {name: 'sleeve1', weight: 0.2, status: 'NOT AVAILABLE'}
     rows: []
   };
 
   getData(portfolio) {
 
-    this.data.sleeves = this.generateSleevesForPortfolio(portfolio);
-    this.data.weights = this.generateSleevesWeights();
+    const sleeves = this.generateSleevesForPortfolio(portfolio);
+    let weights = this.generateSleevesWeights(sleeves.length);
+    const disabled = sleeves.map(() => Math.random() < 0.1 ? C.SLEEVE_DISABLED: null);
+    weights = weights.map((el, i) => disabled[i] === C.SLEEVE_DISABLED ? null : el); // nullify disabled weights
+
+    this.data.sleeves = sleeves.map((s, i) => ({name: s, weight: weights[i], status: disabled[i]}));
+
     this.data.rows = this.generateRows();
 
     return this.data;
   }
 
-  generateSleevesWeights() {
+  generateSleevesWeights(n) {
     const ret = [];
-    const n = this.data.sleeves.length;
 
     let max = 200;
 
@@ -55,6 +58,8 @@ class MockDataGenerator {
     if (p === '10sleeves') {
       return this.generateSleeves(10);
     } else if (p === 'nimulti-east') {
+      return [...this.SLEEVES_POOL];
+    } else if (p === 'nimulti-west') {
       return [...this.SLEEVES_POOL];
     } else if (p === '30sleeves') {
       return this.generateSleeves(30);
@@ -100,7 +105,7 @@ class MockDataGenerator {
     return ret;
   }
 
-  generateCellValue(status) {
+  generateCellValue(status, disabled) {
 
     const ret = {
       status: null
@@ -111,13 +116,16 @@ class MockDataGenerator {
     ret[C.SIDEBAR_SLEEVE_EOD_WEIGHT_CONTRIB] = null;
     ret[C.SIDEBAR_SLEEVE_TRADE_CONTRIB] = null;
 
-    if (Math.random() < 0.2) {
+    if (!disabled && Math.random() < 0.2) {
         ret.status = this.generateStatus(status);
-        const max = 500;
-        ret[C.SIDEBAR_SLEEVE_EOD_WEIGHT] = Math.floor(Math.random() * max) - Math.floor(max / 3);
-        ret[C.SIDEBAR_SLEEVE_TRADE] = Math.floor(Math.random() * max) - Math.floor(max / 3);
-        ret[C.SIDEBAR_SLEEVE_EOD_WEIGHT_CONTRIB] = Math.floor(Math.random() * max) - Math.floor(max / 3);
-        ret[C.SIDEBAR_SLEEVE_TRADE_CONTRIB] = Math.floor(Math.random() * max) - Math.floor(max / 3);
+
+        if (ret.status !== C.AGG_STATUS_NOT_LOADED) {        
+          const max = 500;
+          ret[C.SIDEBAR_SLEEVE_EOD_WEIGHT] = Math.floor(Math.random() * max) - Math.floor(max / 3);
+          ret[C.SIDEBAR_SLEEVE_TRADE] = Math.floor(Math.random() * max) - Math.floor(max / 3);
+          ret[C.SIDEBAR_SLEEVE_EOD_WEIGHT_CONTRIB] = Math.floor(Math.random() * max) - Math.floor(max / 3);
+          ret[C.SIDEBAR_SLEEVE_TRADE_CONTRIB] = Math.floor(Math.random() * max) - Math.floor(max / 3);
+        }
     }
 
     return ret;
@@ -129,7 +137,7 @@ class MockDataGenerator {
     const maxInd = statuses.indexOf(status) + 1;
     let ind = Math.floor(Math.random() * maxInd);
 
-    if (status !== C.AGG_STATUS_AGGREGATED && ind === 0) ind++;
+    if (status !== C.AGG_STATUS_AGGREGATED && ind === 0) ind += (1 + Math.floor(Math.random() * 4));
 
     return statuses[ind];
   }
@@ -153,11 +161,14 @@ class MockDataGenerator {
       if (totalStatus === "") continue;
 
       row.total = {
-        value: row.rowData.map(el => Number(el[C.SIDEBAR_SLEEVE_EOD_WEIGHT])).reduce((total, el) => total + el),
+        value: Math.floor(row.rowData.map(el => Number(el[C.SIDEBAR_SLEEVE_EOD_WEIGHT])).reduce((total, el, idx) => total + el * this.data.sleeves[idx].weight / 100)),
         status: totalStatus
       };
-      row.portfolio = "000"
-      row.trade = "000"
+      row.trade = Math.floor(row.rowData.map(el => Number(el[C.SIDEBAR_SLEEVE_TRADE])).reduce((total, el, idx) => total + el * this.data.sleeves[idx].weight  / 100));
+      row.portfolio = row.total.value - row.trade;
+
+      row.selected = false; // not a server data, used in browser only
+      row.reactComponent = null; // when the Tr react component is rendered it attaches itself here
 
       ret.push(row);
     }
@@ -198,7 +209,7 @@ class MockDataGenerator {
     let randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
 
     for (let i = 0; i < this.data.sleeves.length; i++) {
-      let cell = this.generateCellValue(randomStatus);
+      let cell = this.generateCellValue(randomStatus, this.data.sleeves[i].status === C.SLEEVE_DISABLED);
       ret.push(cell);
     }
 

@@ -18,6 +18,7 @@ const dataGridContent = props => {
           onClick={() => props.clicked(C.SIDEBAR_SLEEVE_TRADE)} >
             {C.SIDEBAR_SLEEVE_TITLE[C.SIDEBAR_SLEEVE_TRADE]}
         </li>
+        {/*
         <li
           className={props.dataGridContent === C.SIDEBAR_SLEEVE_EOD_WEIGHT_CONTRIB ? 'active' : null}
           onClick={() => props.clicked(C.SIDEBAR_SLEEVE_EOD_WEIGHT_CONTRIB)} >
@@ -28,6 +29,7 @@ const dataGridContent = props => {
           onClick={() => props.clicked(C.SIDEBAR_SLEEVE_TRADE_CONTRIB)} >
             {C.SIDEBAR_SLEEVE_TITLE[C.SIDEBAR_SLEEVE_TRADE_CONTRIB]}
         </li>
+        */}
       </ul>
 
       <div className="uid-filter">
