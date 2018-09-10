@@ -1,0 +1,21 @@
+version: '3.7'
+
+# Build needs to be run just once
+# docker-compose build
+
+# Next command starts the dev environment
+# docker-compose run --rm --service-ports develop
+
+services:
+  develop:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: vadozy/react-aggregator:develop
+    command: /bin/sh
+    ports:
+      - 3500:3500
+      - 3100:3100
+      - 3000:3000
+    volumes:
+      - .:/home/node/

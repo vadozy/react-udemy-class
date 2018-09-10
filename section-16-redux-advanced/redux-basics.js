@@ -28,7 +28,7 @@ const rootReducer = (state = initialState, action) => {
 };
 
 // Store
- // Run this script as "node redux-basics.js"
+// Run this script as "node redux-basics.js"
 const store = createStore(rootReducer);
 console.log('redux store state is');
 console.log(store.getState());
@@ -43,5 +43,3 @@ store.dispatch({type: 'DUMMY'});
 store.dispatch({type: 'INC_COUNTER'});
 store.dispatch({type: 'ADD_COUNTER', value: 10});
 console.log(store.getState());
-
-
