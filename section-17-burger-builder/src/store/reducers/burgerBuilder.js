@@ -1,4 +1,7 @@
-import * as ACTION_TYPE from './actions';
+/*
+ * Reducer for building an order
+ */
+import * as actionTypes from '../actions/actionTypes';
 
 const INGREDIENT_PRICES = {
     salad: 0.5,
@@ -8,18 +11,14 @@ const INGREDIENT_PRICES = {
 }
 
 const initialState = {
-    ingredients: {
-        salad: 0,
-        bacon: 0,
-        cheese: 0,
-        meat: 0
-    },
-    totalPrice: 4 // base proce
+    ingredients: null,
+    totalPrice: 4, // base proce
+    error: false
 };
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case ACTION_TYPE.ADD_INGREDIENT:
+        case actionTypes.ADD_INGREDIENT:
             return {
                 ...state,
                 ingredients: {
@@ -28,14 +27,25 @@ const reducer = (state = initialState, action) => {
                 },
                 totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName]
             };
-        case ACTION_TYPE.REMOVE_INGREDIENT:
+        case actionTypes.REMOVE_INGREDIENT:
             return {
                 ...state,
                 ingredients: {
                     ...state.ingredients,
                     [action.ingredientName]: state.ingredients[action.ingredientName] - 1 
                 },
-                totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName]
+                totalPrice: state.totalPrice - INGREDIENT_PRICES[action.ingredientName]
+            };
+        case actionTypes.SET_INGREDIENTS:
+            return {
+                ...state,
+                ingredients: action.ingredients,
+                error: false
+            };
+        case actionTypes.FETCH_INGREDIENTS_FAILED:
+            return {
+                ...state,
+                error: true
             };
         default:
             return state;
