@@ -9,6 +9,9 @@ import classes from './ContactData.css';
 import axios from '../../../axios-orders';
 
 import Input from '../../../components/UI/Input/Input';
+import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler';
+
+import * as actions from '../../../store/actions/index';
 
 class ContactData extends Component {
 	state = {
@@ -93,32 +96,23 @@ class ContactData extends Component {
 				valid: true
 			}
 		},
-		formIsValid: false,
-		loading: false
+		formIsValid: false
 	}
 
 	orderHandler = event => {
 		event.preventDefault();
-		this.setState({loading: true});
 		const formData = {};
 		for (let formElementIdentifier in this.state.orderForm) {
 			formData[formElementIdentifier] = this.state.orderForm[formElementIdentifier].value;
 		}
+
 		const order = {
 			ingredients: this.props.ings,
 			price: this.props.price, // should be computed on the server, where products are stored
 			orderData: formData
 		};
-		axios.post('/orders.json', order) // .json is the firebase requirement
-			.then(response => {
-				console.log(response);
-				this.setState({loading: false});
-				this.props.history.push('/');
-			})
-			.catch(error => {
-				console.log("Something went wrong %s", error)	;
-				this.setState({loading: false});
-			});
+
+		this.props.onOrderBurger(order);
 	}
 
 	checkValidity(value, rules) {
@@ -183,7 +177,7 @@ class ContactData extends Component {
 			</div>
 		);
 
-		if (this.state.loading) {
+		if (this.props.loading) {
 			form = <Spinner />
 		}
 		return form;
@@ -193,8 +187,15 @@ class ContactData extends Component {
 const mapStateToProps = state => {
 	return {
 		ings: state.ingredients,
-		price: state.totalPrice
+		price: state.totalPrice,
+		loading: state.loading
 	};
 };
 
-export default connect(mapStateToProps)(ContactData);
+const mapDispatchToProps = dispatch => {
+	return {
+		onOrderBurger: orderData => dispatch(actions.purchaseBurger(orderData))
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(ContactData, axios));
