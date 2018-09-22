@@ -31,11 +31,17 @@ export const purchaseBurger = orderData => {
         axios.post('/orders.json', orderData) // .json is the firebase requirement
         .then(response => {
             console.log(response.data);
-            dispatch(purchaseBurgerSuccess(response.data, orderData));
+            dispatch(purchaseBurgerSuccess(response.data.name, orderData));
         })
         .catch(error => {
             console.log("Something went wrong %s", error)	;
             dispatch(purchaseBurgerFail(error));
         });
+    };
+};
+
+export const purchaseInit = () => {
+    return {
+        type: actionTypes.PURCHASE_INIT
     };
 };

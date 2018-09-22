@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
@@ -11,12 +11,18 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 import burgerBuilderReducer from './store/reducers/burgerBuilder';
+import orderReducer from './store/reducers/order';
 
 // composeEnhancers is for development only, it enabled Chrome Redux devtools to see this store.
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
+const rootReducer = combineReducers({
+	burgerBuilder: burgerBuilderReducer,
+	order: orderReducer
+});
+
 const store = createStore(
-	burgerBuilderReducer,
+	rootReducer,
 	composeEnhancers(applyMiddleware(thunk))
 );
 
