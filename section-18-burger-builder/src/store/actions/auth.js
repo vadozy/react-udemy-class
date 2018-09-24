@@ -11,14 +11,15 @@ export const authStart = () => {
 export const authSuccess = authData => {
     return {
         type: actionTypes.AUTH_SUCCESS,
-        authData: authData
+        token: authData.idToken,
+        userId: authData.localId
     };
 };
 
 export const authFail = err => {
     return {
         type: actionTypes.AUTH_FAIL,
-        error: err
+        error: err.response.data.error.message
     };
 };
 
@@ -43,7 +44,7 @@ export const auth = (email, password, isSignup) => {
                 dispatch(authSuccess(response.data));
             })
             .catch(err => {
-                console.error(err);
+                console.error(`auth action Error: ${err}`);
                 dispatch(authFail(err));
             });
     };

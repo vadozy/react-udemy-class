@@ -12,13 +12,15 @@ import registerServiceWorker from './registerServiceWorker';
 
 import burgerBuilderReducer from './store/reducers/burgerBuilder';
 import orderReducer from './store/reducers/order';
+import authReducer from './store/reducers/auth';
 
 // composeEnhancers is for development only, it enabled Chrome Redux devtools to see this store.
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
 	burgerBuilder: burgerBuilderReducer,
-	order: orderReducer
+	order: orderReducer,
+	auth: authReducer
 });
 
 const store = createStore(
