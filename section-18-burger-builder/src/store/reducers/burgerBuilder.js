@@ -14,7 +14,8 @@ const INGREDIENT_PRICES = {
 const initialState = {
     ingredients: null,
     totalPrice: 4, // base proce
-    error: false
+    error: false,
+    building: false // set true when burger building process started
 };
 
 const addIngredient = (state, action) => {
@@ -22,7 +23,8 @@ const addIngredient = (state, action) => {
     const updatedIngs = updateObject(state.ingredients, updatedIng);
     const updatedState = {
         ingredients: updatedIngs,
-        totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName]
+        totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName],
+        building: true
     };
     return(updateObject(state, updatedState));
 };
@@ -32,7 +34,8 @@ const removeIngredient = (state, action) => {
     const updatedIngs = updateObject(state.ingredients, updatedIng);
     const updatedState = {
         ingredients: updatedIngs,
-        totalPrice: state.totalPrice - INGREDIENT_PRICES[action.ingredientName]
+        totalPrice: state.totalPrice - INGREDIENT_PRICES[action.ingredientName],
+        building: true
     };
     return(updateObject(state, updatedState));
 };
@@ -41,7 +44,8 @@ const setIngredient = (state, action) => {
     return updateObject(state, {
         ingredients: action.ingredients,
         totalPrice: 4,
-        error: false
+        error: false,
+        building: false
     });
 };
 
