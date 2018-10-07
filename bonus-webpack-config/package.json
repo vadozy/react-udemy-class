@@ -1,0 +1,19 @@
+{
+  "name": "bonus-webpack-config",
+  "version": "1.0.0",
+  "description": "Bonus Webpack Config Lecture",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vadozy/react-udemy-class.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vadim Storozhuk",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^3.12.0",
+    "webpack-dev-server": "^2.11.3"
+  }
+}
