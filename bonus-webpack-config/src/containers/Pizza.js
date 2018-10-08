@@ -13,4 +13,4 @@ class Pizza extends Component {
     }
 }
 
-export default PizzaImage;
+export default Pizza;
