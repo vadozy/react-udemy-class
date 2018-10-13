@@ -1,0 +1,22 @@
+{
+  "name": "section-23-next",
+  "version": "1.0.0",
+  "description": "Next.js bonus lecture",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vadozy/react-udemy-class.git"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "author": "Vadim Storozhuk",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^7.0.2",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  }
+}
